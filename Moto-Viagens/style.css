@@ -1,0 +1,308 @@
+:root {
+	--cor-primaria: hsl(0, 0%, 12%);
+	--cor-secundaria: hsl(0, 0%, 88%);
+	--cor-terciaria-1: hsl(0, 0%, 22%);
+	--cor-terciaria-1-opaca: hsla(0, 0%, 22%, 0.8);
+	--cor-terciaria-2: hsl(0, 0%, 30%);
+	--cor-terciaria-3: hsl(0, 0%, 78%);
+	--cor-hover: red;
+	--opacidade-padrao: rgba(0, 0, 0, 0.6);
+	--fonte-principal: "arial";
+	--tamanho-fonte: 16px;
+	--espacamento-letra: 1px;
+	--altura-linha: 30px;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	width: 100%;
+	height: 100vh;
+	background-color: var(--cor-primaria);
+	overflow-x: hidden;
+}
+
+/* Header, navbar e menu */
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--cor-terciaria-1-opaca);
+	width: 100%;
+	height: 60px;
+	padding: 5px 0;
+	color: var(--cor-secundaria);
+	font-size: var(--tamanho-fonte);
+	letter-spacing: var(--espacamento-letra);
+}
+
+header .navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 80%;
+	margin: 0 10%;
+}
+
+header .navbar img {
+	width: 60px;
+}
+
+header .navbar #marcaNavbar {
+	filter: invert(30%);
+	width: 40%;
+	rotate: 20deg;
+	position: absolute;
+	top: 0%;
+	right: -3%;
+	z-index: -1;
+}
+
+/* header .navbar #rodaMenu:hover {
+	rotate: 180deg;
+} */
+
+header .navbar .navOptions {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 30%;
+}
+
+header .navbar .navOptions .navItem {
+	width: 40%;
+	padding: 0 10%;
+}
+
+header .navbar .navOptions .inativo:hover {
+	cursor: pointer;
+}
+
+header .navbar .navOptions .ativo {
+	text-decoration: underline;
+}
+
+main {
+	/* background-color: var(--cor-terciaria-1); */
+	width: 100%;
+	height: auto;
+	color: var(--cor-secundaria);
+	font-size: var(--tamanho-fonte);
+	/* letter-spacing: var(--espacamento-letra); */
+}
+
+/* Introdução e imagens de motos */
+.containerIntro {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 80%;
+	height: auto;
+	margin: 0 10%;
+}
+
+.containerIntro .intro {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+}
+.containerIntro .intro img {
+	width: 800px;
+}
+.containerIntro .intro p {
+	width: 40%;
+	font-size: 30px;
+}
+.containerIntro .intro .imagemMoto {
+	width: 40%;
+}
+
+.containerIntro .trail img {
+	position: relative;
+	left: -90%;
+}
+.containerIntro .trail p {
+	text-align: start;
+}
+
+.containerIntro .speed img {
+	position: relative;
+}
+.containerIntro .speed p {
+	text-align: end;
+}
+
+.containerIntro #pistaoIntro {
+	filter: opacity(30%);
+	width: 3%;
+	rotate: -40deg;
+	position: absolute;
+	top: 15%;
+	left: 35%;
+	z-index: -1;
+}
+.containerIntro #amortecedorIntro {
+	filter: opacity(30%);
+	width: 5%;
+	rotate: 40deg;
+	position: absolute;
+	top: 30%;
+	right: 10%;
+	z-index: -1;
+}
+.containerIntro #ferramentasIntro {
+	filter: opacity(30%);
+	width: 5%;
+	rotate: 40deg;
+	position: absolute;
+	top: 90%;
+	right: 40%;
+	z-index: -1;
+}
+.containerIntro #velaIntro {
+	filter: opacity(30%);
+	width: 3%;
+	rotate: -40deg;
+	position: absolute;
+	top: 115%;
+	left: 20%;
+	z-index: -1;
+}
+
+/* sobre viajar de moto, contexto */
+.backgroundSobre {
+	background-image: url("../Rascunhos/Banco de Imagens/paisagem-floresta-rodovia.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 600px;
+}
+.containerSobre {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 80%;
+	height: auto;
+	margin: 0 10%;
+	padding: 4% 0;
+}
+
+.containerSobre h3 {
+	font-size: 30px;
+	margin-bottom: 8%;
+	background-color: var(--cor-terciaria-1-opaca);
+	padding: 0 1%;
+	border-radius: 10px;
+}
+
+.containerSobre .contexto {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--cor-terciaria-1-opaca);
+	width: 70%;
+	font-size: 18px;
+	padding: 3%;
+	border-radius: 10px;
+}
+.containerSobre .contexto p {
+	margin: 0 2%;
+}
+
+.containerSobre #marcaSobre {
+	filter: invert(30%);
+	width: 120%;
+	rotate: 5deg;
+	position: absolute;
+	top: 170%;
+	left: -3%;
+	z-index: 0;
+}
+
+/* garagem dos sonhos */
+.containerGaragem {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+	height: auto;
+	margin: 5% 10%;
+}
+.containerGaragem .modalGaragem {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: var(--cor-terciaria-1-opaca);
+	width: 70%;
+	height: 220px;
+	font-size: 18px;
+	padding: 2%;
+	border-radius: 10px;
+}
+.containerGaragem .modalGaragem .garagemOptions {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 100%;
+	height: auto;
+	list-style-type: none;
+}
+.containerGaragem .modalGaragem .garagemOptions .garagemItem {
+	text-align: center;
+	width: 50%;
+	padding: 5px;
+}
+
+.containerGaragem .modalGaragem .garagemOptions #minhasMotos {
+	border-left: 2px solid var(--cor-primaria);
+	border-right: 2px solid var(--cor-primaria);
+	border-top: 2px solid var(--cor-primaria);
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+}
+
+.containerGaragem .modalGaragem .garagemOptions .inativo {
+	cursor: pointer;
+}
+
+.containerGaragem .modalGaragem .garagemOptions #novaMoto {
+	border-bottom: 1px solid var(--cor-primaria);
+}
+
+.containerGaragem .modalGaragem .minhaGaragem {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	flex-direction: column;
+	background-color: var(--cor-terciaria-2);
+	border: 2px solid var(--cor-primaria);
+	border-top: 0;
+	width: 100%;
+	height: 200px;
+	overflow-y: auto;
+}
+
+.containerGaragem .modalGaragem .minhaGaragem #linhaPadrao {
+	border-bottom: 6px solid var(--cor-terciaria-1);
+}
+
+.containerGaragem .modalGaragem .minhaGaragem .linhasGaragem {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 20px;
+	border-bottom: 2px solid var(--cor-terciaria-1);
+}
+
+.containerGaragem .modalGaragem .minhaGaragem .linhasGaragem .coluna {
+	width: 20%;
+	padding: 0 5px;
+}

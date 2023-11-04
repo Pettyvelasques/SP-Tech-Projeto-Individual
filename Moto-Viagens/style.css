@@ -1,9 +1,11 @@
 :root {
 	--cor-primaria: hsl(0, 0%, 12%);
+	--cor-primaria-opaca: hsla(0, 0%, 12%, 0.8);
 	--cor-secundaria: hsl(0, 0%, 88%);
 	--cor-terciaria-1: hsl(0, 0%, 22%);
 	--cor-terciaria-1-opaca: hsla(0, 0%, 22%, 0.8);
 	--cor-terciaria-2: hsl(0, 0%, 30%);
+	--cor-terciaria-2-opaca: hsla(0, 0%, 30%, 0.8);
 	--cor-terciaria-3: hsl(0, 0%, 78%);
 	--cor-hover: red;
 	--opacidade-padrao: rgba(0, 0, 0, 0.6);
@@ -177,7 +179,7 @@ main {
 
 /* sobre viajar de moto, contexto */
 .backgroundSobre {
-	background-image: url("../Rascunhos/Banco de Imagens/paisagem-floresta-rodovia.jpg");
+	background-image: url("../Rascunhos/Banco-de-Imagens/paisagem-floresta-rodovia.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 600px;
@@ -227,14 +229,17 @@ main {
 
 /* garagem dos sonhos */
 .containerGaragem {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	text-align: center;
 	width: 80%;
-	height: auto;
+	height: 100vh;
 	margin: 5% 10%;
 }
-.containerGaragem .modalGaragem {
+.containerGaragem h3 {
+	font-size: 30px;
+	margin-bottom: 3%;
+}
+
+/* .containerGaragem .modalGaragem {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -305,4 +310,173 @@ main {
 .containerGaragem .modalGaragem .minhaGaragem .linhasGaragem .coluna {
 	width: 20%;
 	padding: 0 5px;
+} */
+
+.containerGaragem .backgroundGaragem {
+	width: 100%;
+	height: 90%;
+	background-image: url(../Rascunhos/Banco-de-Imagens/background-garagem.png);
+	background-size: 100% 100%;
+	background-position: bottom;
+	background-repeat: no-repeat;
+	border: 3px solid black;
+	border-radius: 5px;
+}
+
+.containerGaragem .backgroundGaragem .headerGaragem {
+	width: 100%;
+	height: 12%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--cor-primaria-opaca);
+}
+
+.containerGaragem .backgroundGaragem .headerGaragem .voltar img {
+	height: 8vh;
+	filter: invert(100%);
+	margin: 0 12px;
+}
+
+.containerGaragem .backgroundGaragem .headerGaragem .user {
+	width: 40%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.containerGaragem .backgroundGaragem .headerGaragem .user img {
+	height: 9vh;
+	border-radius: 5px;
+}
+
+.containerGaragem .backgroundGaragem .headerGaragem .user .userDescricao {
+	height: 8vh;
+	width: 85%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: start;
+}
+
+.containerGaragem .backgroundGaragem .headerGaragem .user .userDescricao .nome {
+	font-size: 16px;
+}
+
+.containerGaragem
+	.backgroundGaragem
+	.headerGaragem
+	.user
+	.userDescricao
+	.cidade
+	img {
+	height: 3vh;
+	filter: invert(100%);
+}
+
+.containerGaragem
+	.backgroundGaragem
+	.headerGaragem
+	.user
+	.userDescricao
+	.cidade
+	span {
+	font-size: 11px;
+}
+
+.containerGaragem .backgroundGaragem .headerGaragem .preco {
+	width: 40%;
+	height: 8vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: end;
+}
+
+.containerGaragem .backgroundGaragem .headerGaragem .preco .caixaPreco {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	width: 100%;
+}
+
+.containerGaragem .backgroundGaragem .headerGaragem .preco .caixaPreco img {
+	height: 3vh;
+	margin-right: 10px;
+}
+
+.containerGaragem
+	.backgroundGaragem
+	.headerGaragem
+	.preco
+	.caixaPreco
+	.precoMotos {
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	min-width: 22%;
+}
+
+.containerGaragem
+	.backgroundGaragem
+	.headerGaragem
+	.preco
+	.caixaPreco
+	.precoMotos
+	#precoTotal {
+	margin-left: 2px;
+}
+
+.containerGaragem .backgroundGaragem .headerGaragem .adicionar img {
+	height: 6vh;
+	filter: invert(100%);
+	margin: 0 12px;
+}
+
+.containerGaragem .backgroundGaragem .mainGaragem {
+	width: 100%;
+	height: 88%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.containerGaragem .backgroundGaragem .mainGaragem .motoAnterior {
+	height: 100%;
+	width: 15%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.containerGaragem .backgroundGaragem .mainGaragem .motoAnterior img {
+	height: 10vh;
+	filter: invert(1);
+}
+
+.containerGaragem .backgroundGaragem .mainGaragem .moto {
+	height: 100%;
+	width: 70%;
+	display: flex;
+	justify-content: center;
+	align-items: end;
+	padding-bottom: 20px;
+}
+
+.containerGaragem .backgroundGaragem .mainGaragem .moto img {
+	height: 300px;
+	rotate: 2deg;
+}
+
+.containerGaragem .backgroundGaragem .mainGaragem .proximaMoto {
+	height: 100%;
+	width: 15%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.containerGaragem .backgroundGaragem .mainGaragem .proximaMoto img {
+	height: 10vh;
+	filter: invert(1);
 }

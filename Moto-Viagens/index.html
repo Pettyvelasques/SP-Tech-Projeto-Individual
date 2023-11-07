@@ -83,12 +83,14 @@
 							agilidade no trânsito, evitando congestionamentos e facilitando a
 							locomoção em áreas de difícil acesso. É também uma opção econômica
 							no quesito consumo de combustível e, para muitos, uma oportunidade
-							de socialização, pois não nada incomum que os motociclistas
+							de socialização, pois não é nada incomum que os motociclistas
 							compartilhem suas histórias e experiências com outros viajantes.
 						</p>
 					</div>
 				</div>
 			</div>
+			<div class="tampaMoto tampaLeft"></div>
+			<div class="tampaMoto tampaRight"></div>
 			<div class="containerGaragem">
 				<h3>MINHA GARAGEM DOS SONHOS</h3>
 				<!-- <div class="loginGaragem"></div> -->
@@ -152,22 +154,35 @@
 						<div class="motoAnterior">
 							<img
 								src="../Rascunhos/Banco-de-Imagens/arrow-left.png"
-								alt="icone de uma seta virada para esquerda" />
+								alt="icone de uma seta virada para esquerda"
+								onclick="anteriorMotocicleta()" />
 						</div>
 						<div class="moto">
 							<img
-								src="../Banco-de-Motos/Honda/CRF 1100L Africa Twin.webp"
-								alt="" />
+								src="../Banco-de-Motos/Honda/CRF-1100L.webp"
+								alt=""
+								id="motocicletaGetIn" />
+							<img
+								src="../Banco-de-Motos/Honda/CRF-1100L.webp"
+								alt=""
+								id="motocicletaAtual"
+								class="CRF-1100L" />
+							<img
+								src="../Banco-de-Motos/Honda/CRF-1100L.webp"
+								alt=""
+								id="motocicletaGetOut" />
 						</div>
 						<div class="proximaMoto">
 							<img
 								src="../Rascunhos/Banco-de-Imagens/arrow-right.png"
-								alt="icone de uma seta virada para direita" />
+								alt="icone de uma seta virada para direita"
+								onclick="proximaMotocicleta()" />
 						</div>
 					</div>
 					<div class="footerGaragem"></div>
 				</div>
 			</div>
+
 			<div class="containerSimulador">
 				<span>a</span>
 			</div>

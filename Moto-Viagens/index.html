@@ -11,12 +11,14 @@
 		<header>
 			<div class="navbar">
 				<div class="logo">
-					<img src="../Rascunhos/Banco-de-Imagens/No-BG/capacete-1.png" />
+					<img src="../Rascunhos/Banco-de-Imagens/No-BG/logo-04.png" />
 				</div>
 				<div class="navOptions">
-					<span class="navItem ativo" id="navGaragem">GARAGEM</span>
-					<span>|</span>
-					<span class="navItem inativo" id="navViagens">VIAGENS</span>
+					<span class="navItem ativo" id="navGaragem"
+						>PROJETO GARAGEM DOS SONHOS</span
+					>
+					<!-- <span>|</span>
+					<span class="navItem inativo" id="navViagens">VIAGENS</span> -->
 				</div>
 				<div class="menu">
 					<img
@@ -70,21 +72,23 @@
 						id="marcaSobre" />
 					<h3>Porque não juntar os dois?</h3>
 					<div class="contexto">
-						<p>
+						<p class="textLeft">
 							Você sabia que, além da sensação de liberdade e aventura que
 							viajar de moto nos proporciona, há também uma conexão com o
-							ambiente ao redor. Motociclistas experimentam uma proximidade
-							única com as paisagens, podendo sentir o vento, o cheiro e os sons
-							da estrada de maneira intensa, tornando a viagem uma experiência
-							sensorial enriquecedora e uma sensação de plenitude sem igual.
+							ambiente ao redor. <br />
+							Motociclistas experimentam uma proximidade única com as paisagens,
+							podendo sentir o vento, o cheiro e os sons da estrada de maneira
+							intensa, tornando a viagem uma experiência sensorial enriquecedora
+							e uma sensação de plenitude sem igual.
 						</p>
-						<p>
+						<p class="textRight">
 							Além disso, viajar de moto permite uma maior flexibilidade e
 							agilidade no trânsito, evitando congestionamentos e facilitando a
-							locomoção em áreas de difícil acesso. É também uma opção econômica
-							no quesito consumo de combustível e, para muitos, uma oportunidade
-							de socialização, pois não é nada incomum que os motociclistas
-							compartilhem suas histórias e experiências com outros viajantes.
+							locomoção em áreas de difícil acesso. <br />
+							É também uma opção econômica no quesito consumo de combustível e,
+							para muitos, uma oportunidade de socialização, pois não é nada
+							incomum que os motociclistas compartilhem suas histórias e
+							experiências com outros viajantes.
 						</p>
 					</div>
 				</div>
@@ -93,32 +97,21 @@
 			<div class="tampaMoto tampaRight"></div>
 			<div class="containerGaragem">
 				<h3>MINHA GARAGEM DOS SONHOS</h3>
-				<!-- <div class="loginGaragem"></div> -->
-				<!-- <div class="modalGaragem">
-					<ul class="garagemOptions">
-						<li class="garagemItem" id="minhasMotos">Minhas Motos</li>
-						<li class="garagemItem inativo" id="novaMoto">Nova Moto</li>
-					</ul>
-					<div class="minhaGaragem">
-						<div class="linhasGaragem" id="linhaPadrao">
-							<div class="coluna marca">Marca</div>
-							<div class="coluna modelo">Modelo</div>
-							<div class="coluna cilindrada">Cilindrada</div>
-							<div class="coluna ano">Ano</div>
-							<div class="coluna fipe">Preço</div>
+				<div class="backgroundLogin" id="telaEntrada">
+					<div class="containerLogin">
+						<div class="botaoEntrar garagem" onclick="entrarGaragem()">
+							<p class="titulo">GARAGEM</p>
+							<img src="../Rascunhos/Banco-de-Imagens/garage.png" />
 						</div>
-						<div class="linhasGaragem">
-							<div class="coluna marca">Kasinski</div>
-							<div class="coluna modelo">Mirage</div>
-							<div class="coluna cilindrada">150</div>
-							<div class="coluna ano">2011</div>
-							<div class="coluna fipe">R$ 3.487,00</div>
+						<div class="botaoEntrar loja" onclick="entrarLoja()">
+							<p class="titulo">LOJA</p>
+							<img src="../Rascunhos/Banco-de-Imagens/showroom-02.png" />
 						</div>
 					</div>
-				</div> -->
-				<div class="backgroundGaragem">
+				</div>
+				<div class="backgroundGaragem" id="telaGaragem">
 					<div class="headerGaragem">
-						<div class="voltar">
+						<div class="voltar" onclick="sairGaragem()">
 							<img
 								src="../Rascunhos/Banco-de-Imagens/left-arrow.png"
 								alt="icone de uma seta apontando para a esquerda" />
@@ -128,7 +121,7 @@
 								src="../Rascunhos/Banco-de-Imagens/guest-user-icon.jpg"
 								alt="imagem quadrada com a silhueta de um homem e fundo verde" />
 							<div class="userDescricao">
-								<div class="nome" id="userNome">GUEST</div>
+								<div class="nome" id="userNome">PATRICK V.</div>
 								<div class="cidade">
 									<img
 										src="../Rascunhos/Banco-de-Imagens/location.png"
@@ -142,7 +135,7 @@
 							<div class="caixaPreco">
 								<img src="../Rascunhos/Banco-de-Imagens/money.png" alt="" />
 								<div class="precoMotos">
-									R$<span id="precoTotal">1000.00</span>
+									R$<span id="precoTotal">115.645,00</span>
 								</div>
 							</div>
 						</div>
@@ -151,6 +144,65 @@
 						</div>
 					</div>
 					<div class="mainGaragem">
+						<div class="containerModalDetalhes" id="modalDetalhesMoto">
+							<div class="detalhesMoto">
+								<button id="fecharDetalhes" onclick="fecharDetalhes()">
+									X
+								</button>
+								<div class="imagem">
+									<img
+										src="../Banco-de-Motos/Honda/CRF-1100L.png"
+										id="detalhesImagem" />
+								</div>
+								<div class="especificacoes">
+									<div class="marcaPreco">
+										<p>
+											<img
+												src="../Banco-de-Motos/Honda/logo-honda.png"
+												id="logoMarca" />
+											<span id="detalhesMarca">Honda</span>
+										</p>
+										<p id="detalhesPreco">R$95.054,00</p>
+									</div>
+
+									<div class="modelo">
+										<span id="detalhesModelo">CRF 1100L</span
+										><img
+											src="../Rascunhos/Banco-de-Imagens/No-BG/buyed.png"
+											id="modeloCheck" />
+									</div>
+									<div class="especificacoesTecnicas">
+										<div class="motorizacao">
+											<p>
+												Cilindrada: <span id="detalhesCilindrada">1.086</span>cc
+											</p>
+											<p>Potência: <span id="detalhesPotencia">99,3</span>cv</p>
+											<p>Torque: <span id="detalhesTorque">10,5</span>kgf.m</p>
+										</div>
+
+										<div class="dimensoes">
+											<p>Altura: <span id="detalhesAltura">1.40</span>m</p>
+											<p>
+												Comprimento: <span id="detalhesComprimento">2.33</span>m
+											</p>
+										</div>
+									</div>
+									<div class="botoes">
+										<button id="botaoSimular">SIMULAR</button>
+										<button id="botaoComprar" onclick="marcarMoto()">
+											<img
+												src="../Rascunhos/Banco-de-Imagens/No-BG/check-mark.png" />
+											COMPRAR
+										</button>
+										<button id="botaoVender" onclick="desmarcarMoto()">
+											<img
+												src="../Rascunhos/Banco-de-Imagens/No-BG/uncheck-mark.png" />
+											VENDER
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
 						<div class="motoAnterior">
 							<img
 								src="../Rascunhos/Banco-de-Imagens/arrow-left.png"
@@ -159,16 +211,17 @@
 						</div>
 						<div class="moto">
 							<img
-								src="../Banco-de-Motos/Honda/CRF-1100L.webp"
+								src="../Banco-de-Motos/Honda/CRF-1100L.png"
 								alt=""
 								id="motocicletaGetIn" />
 							<img
-								src="../Banco-de-Motos/Honda/CRF-1100L.webp"
+								src="../Banco-de-Motos/Honda/CRF-1100L.png"
 								alt=""
 								id="motocicletaAtual"
-								class="CRF-1100L" />
+								class="CRF-1100L"
+								onclick="exibirDetalhes()" />
 							<img
-								src="../Banco-de-Motos/Honda/CRF-1100L.webp"
+								src="../Banco-de-Motos/Honda/CRF-1100L.png"
 								alt=""
 								id="motocicletaGetOut" />
 						</div>
@@ -180,6 +233,43 @@
 						</div>
 					</div>
 					<div class="footerGaragem"></div>
+				</div>
+				<div class="backgroundLoja" id="telaLoja">
+					<div class="headerLoja">
+						<div class="voltar" onclick="sairGaragem()">
+							<img
+								src="../Rascunhos/Banco-de-Imagens/left-arrow.png"
+								alt="icone de uma seta apontando para a esquerda" />
+						</div>
+						<div class="user">
+							<img
+								src="../Rascunhos/Banco-de-Imagens/guest-user-icon.jpg"
+								alt="imagem quadrada com a silhueta de um homem e fundo verde" />
+							<div class="userDescricao">
+								<div class="nome" id="userNome">PATRICK V.</div>
+								<div class="cidade">
+									<img
+										src="../Rascunhos/Banco-de-Imagens/location.png"
+										alt="icone de localização" />
+									<span id="userCidade">SÃO PAULO</span>
+								</div>
+							</div>
+						</div>
+						<div class="preco">
+							<span>Valor da Garagem</span>
+							<div class="caixaPreco">
+								<img src="../Rascunhos/Banco-de-Imagens/money.png" alt="" />
+								<div class="precoMotos">
+									R$<span id="precoTotal">115.645,00</span>
+								</div>
+							</div>
+						</div>
+						<div class="adicionar">
+							<img src="../Rascunhos/Banco-de-Imagens/more.png" alt="" />
+						</div>
+					</div>
+					<div class="mainLoja"></div>
+					<div class="footerLoja"></div>
 				</div>
 			</div>
 

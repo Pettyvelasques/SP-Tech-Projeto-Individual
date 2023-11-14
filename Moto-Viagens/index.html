@@ -111,7 +111,7 @@
 				</div>
 				<div class="backgroundGaragem" id="telaGaragem">
 					<div class="headerGaragem">
-						<div class="voltar" onclick="sairGaragem()">
+						<div class="voltar" onclick="telaEntrada()">
 							<img
 								src="../Rascunhos/Banco-de-Imagens/left-arrow.png"
 								alt="icone de uma seta apontando para a esquerda" />
@@ -139,7 +139,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="adicionar">
+						<div class="adicionar" onclick="entrarLoja()">
 							<img src="../Rascunhos/Banco-de-Imagens/more.png" alt="" />
 						</div>
 					</div>
@@ -151,7 +151,7 @@
 								</button>
 								<div class="imagem">
 									<img
-										src="../Banco-de-Motos/Honda/CRF-1100L.png"
+										src="./Banco-de-Motos/shadow-750.png"
 										id="detalhesImagem" />
 								</div>
 								<div class="especificacoes">
@@ -211,17 +211,17 @@
 						</div>
 						<div class="moto">
 							<img
-								src="../Banco-de-Motos/Honda/CRF-1100L.png"
+								src="./Banco-de-Motos/shadow-750.png"
 								alt=""
 								id="motocicletaGetIn" />
 							<img
-								src="../Banco-de-Motos/Honda/CRF-1100L.png"
+								src="./Banco-de-Motos/shadow-750.png"
 								alt=""
 								id="motocicletaAtual"
-								class="CRF-1100L"
+								class="Shadow-750"
 								onclick="exibirDetalhes()" />
 							<img
-								src="../Banco-de-Motos/Honda/CRF-1100L.png"
+								src="./Banco-de-Motos/shadow-750.png"
 								alt=""
 								id="motocicletaGetOut" />
 						</div>
@@ -236,7 +236,7 @@
 				</div>
 				<div class="backgroundLoja" id="telaLoja">
 					<div class="headerLoja">
-						<div class="voltar" onclick="sairGaragem()">
+						<div class="voltar" onclick="telaEntrada()">
 							<img
 								src="../Rascunhos/Banco-de-Imagens/left-arrow.png"
 								alt="icone de uma seta apontando para a esquerda" />
@@ -264,11 +264,88 @@
 								</div>
 							</div>
 						</div>
-						<div class="adicionar">
-							<img src="../Rascunhos/Banco-de-Imagens/more.png" alt="" />
+						<div class="dashboard">
+							<img
+								src="../Rascunhos/Banco-de-Imagens/infos.png"
+								alt="Ir para a Dashboard" />
 						</div>
 					</div>
-					<div class="mainLoja"></div>
+					<div class="mainLoja">
+						<div class="motoAnterior">
+							<img
+								src="../Rascunhos/Banco-de-Imagens/arrow-left.png"
+								alt="icone de uma seta virada para esquerda"
+								onclick="backwardMotorcycle()" />
+						</div>
+						<div class="containerMotoAtual">
+							<div class="sobreAMoto" id="modalMotosLoja">
+								<div class="header">
+									<span id="detalhesModeloLoja">CRF 1100L</span>
+									<span id="detalhesPrecoLoja">R$95.054,00</span>
+								</div>
+								<div class="subtitle">
+									<span id="detalhesMarcaLoja">Honda</span>
+								</div>
+								<div class="main">
+									<div class="motorizacaoLoja">
+										<p>
+											<span class="tituloDetalhe">Cilindrada:</span>
+											<span id="detalhesCilindradaLoja">1.086</span>cc
+										</p>
+										<p>
+											<span class="tituloDetalhe">Potência:</span>
+											<span id="detalhesPotenciaLoja">99,3</span>cv
+										</p>
+										<p>
+											<span class="tituloDetalhe">Torque:</span>
+											<span id="detalhesTorqueLoja">10,5</span>kgf.m
+										</p>
+									</div>
+									<div class="especificacoesLoja">
+										<p>
+											<span class="tituloDetalhe">Altura:</span>
+											<span id="detalhesAlturaLoja">1.40</span>m
+										</p>
+										<p>
+											<span class="tituloDetalhe">Comprimento:</span>
+											<span id="detalhesComprimentoLoja">2.33</span>m
+										</p>
+									</div>
+								</div>
+								<!-- <span id="detalhesMarca">Honda</span>
+								<span id="detalhesPreco">R$95.054,00</span>
+								<span id="detalhesModelo">CRF 1100L</span>
+								<p>Cilindrada: <span id="detalhesCilindrada">1.086</span>cc</p>
+								<p>Potência: <span id="detalhesPotencia">99,3</span>cv</p>
+								<p>Torque: <span id="detalhesTorque">10,5</span>kgf.m</p>
+
+								<p>Altura: <span id="detalhesAltura">1.40</span>m</p>
+								<p>Comprimento: <span id="detalhesComprimento">2.33</span>m</p> -->
+							</div>
+							<div class="moto">
+								<img
+									src="./Banco-de-Motos/shadow-750.png"
+									alt=""
+									id="motocicletaGetInLoja" />
+								<img
+									src="./Banco-de-Motos/shadow-750.png"
+									alt=""
+									id="motocicletaAtualLoja"
+									class="Shadow-750"
+									onclick="modalAdicionar()" />
+								<img
+									src="./Banco-de-Motos/shadow-750.png"
+									alt=""
+									id="motocicletaGetOutLoja" />
+							</div>
+						</div>
+						<div class="proximaMoto">
+							<img
+								src="../Rascunhos/Banco-de-Imagens/arrow-right.png"
+								alt="icone de uma seta virada para direita"
+								onclick="forwardMotorcycle()" />
+						</div>
+					</div>
 					<div class="footerLoja"></div>
 				</div>
 			</div>

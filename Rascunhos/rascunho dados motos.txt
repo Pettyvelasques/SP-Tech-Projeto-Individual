@@ -1,75 +1,87 @@
-honda shadow 600
-cc 583cc 
-Potência (cv a rpm): 39 cv
-Torque (mkgf a rpm): 5,1 m.kgf
-comprimento 2.356m
-altura 1.125m
-Consumo Médio(km/l) 18
-tanque 11L 
-
-
 honda shadow 750
-cc 745 cc 
+preço R$ 41.435,00
+cc 745 cc
 Potência (cv a rpm): 45,5 cv
 Torque (mkgf a rpm): 6,5 m.kgf
 comprimento 2.43m
 altura 1.125 m
 Consumo Médio(km/l) 18,5
-tanque 14,6L 
+tanque 14,6L
+
+
+honda shadow 600
+preço R$ 26.669,00
+cc 583cc
+Potência (cv a rpm): 39 cv
+Torque (mkgf a rpm): 5,1 m.kgf
+comprimento 2.356m
+altura 1.125m
+Consumo Médio(km/l) 18
+tanque 11L
 
 
 suzuki boulevard 800
-cc 805 cc 
+preço R$ 42.329,00
+cc 805 cc
 Potência (cv a rpm): 55 cv
 Torque (mkgf a rpm): 6,7 m.kgf
 comprimento 2.42m
 altura 1.105 m
 Consumo Médio(km/l) 15
-tanque 15,5L 
+tanque 15,5L
 
 
 Yamaha Virago 535
-cc 535 cc 
+preço R$ 19.800,00
+cc 535 cc
 Potência (cv a rpm): 45 cv
 Torque (mkgf a rpm): 4,56 m.kgf
 comprimento 2.21m
 altura 1.1m
 Consumo Médio(km/l) 17,1
-tanque 13,5L 
+tanque 13,5L
 
 
 yamaha dragstar 650
-cc 649 cc 
+preço R$ 45.412,00
+cc 649 cc
 Potência (cv a rpm): 39.42cv
 Torque (mkgf a rpm): 5.10 m.kgf
 comprimento 2.34m
 altura 1.065m
 Consumo Médio(km/l) 19
-tanque 16L 
+tanque 16L
 
 
 yamaha midnight star 950
-cc 942 cc 
+preço R$ 38.125,00
+cc 942 cc
 Potência (cv a rpm): 53,6cv
 Torque (mkgf a rpm): 7,83 m.kgf
 comprimento 2.435m
 altura 1.08m
 Consumo Médio(km/l) 17
-tanque 17L 
+tanque 17L
 
 
 Kawasaki Vulcan 900
-cc 903 cc 
+preço R$ 38.125,00
+cc 903 cc
 Potência (cv a rpm): 50cv
 Torque (mkgf a rpm): 8 m.kgf
 comprimento 2.405m
 altura 1.12m
 Consumo Médio(km/l) 18,2
-tanque 20L 
+tanque 20L
 
 ==================
 
-
+potencia por R$ // cc por R$
 potencia por cc ou por litro
 mais economicas - consumo
 maior autonomia - tanque/consumo
+
+quant. usuarios
+quant. garagem vazia
+quant motos adicionadas
+quant motos compradas

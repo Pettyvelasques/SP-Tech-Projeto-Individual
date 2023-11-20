@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Reisen Garage</title>
+		<link rel="stylesheet" href="./css/garagem.css" />
+	</head>
+	<body>
+		<div class="containerGaragemDosSonhos" id="containerGaragem">
+			<div class="backgroundEntrada" id="telaEntrada">
+				<button id="logout" onclick="deslogar()">
+					<img src="./assets/icones/left-arrow.png" />SAIR
+				</button>
+				<button id="dashboard" onclick="toDash()">
+					DASHBOARD
+					<img src="./assets/icones/left-arrow.png" style="rotate: 180deg" />
+				</button>
+				<h1>ESCOLHA PARA CONTINUAR</h1>
+				<div class="containerEntrada">
+					<div class="botaoEntrar garagem" onclick="trocarTela(`garagem`)">
+						<p class="titulo">GARAGEM</p>
+						<img src="./assets/icones/garage.png" />
+					</div>
+					<div class="botaoEntrar loja" onclick="trocarTela(`loja`)">
+						<p class="titulo">LOJA</p>
+						<img src="./assets/icones/showroom-02.png" />
+					</div>
+				</div>
+			</div>
+			<div class="backgroundGaragem" id="telaGaragem">
+				<div class="headerGaragem">
+					<div class="voltar" onclick="trocarTela(`entrada`)">
+						<img
+							src="./assets/icones/arrow-left.png"
+							alt="icone de uma seta apontando para a esquerda" />
+						<span>VOLTAR</span>
+					</div>
+					<div class="user">
+						<img
+							src="./assets/icones/helmet-user-icon.png"
+							alt="imagem quadrada com a silhueta de um homem e fundo verde" />
+						<div class="userDescricao">
+							<div class="nome" id="userNome">PATRICK V.</div>
+							<div class="cidade">
+								<img
+									src="./assets/icones/location.png"
+									alt="icone de localização" />
+								<span id="userCidade">SÃO PAULO</span>
+							</div>
+						</div>
+					</div>
+					<div class="preco">
+						<span class="tituloPrecoTotal">Valor da Garagem</span>
+						<div class="caixaPreco">
+							<img src="./assets/icones/money.png" alt="" />
+							<div class="precoMotos">
+								R$<span id="precoTotalGaragem">0,00</span>
+							</div>
+							<img
+								src="./assets/icones/info-circle.png"
+								style="filter: invert(100%)"
+								id="infoPreco"
+								onmouseover="mostraInfo(`garagem`)"
+								onmouseout="ocultaInfo()" />
+						</div>
+						<div class="infoPreco" id="infoPrecoGaragem">
+							O preço da sua garagem é baseado no valor total das motos que você
+							adicionou a sua garagem
+						</div>
+					</div>
+					<div class="adicionar" onclick="trocarTela(`loja`)">
+						<img src="./assets/icones/more.png" alt="" />
+						<span>LOJA</span>
+					</div>
+				</div>
+				<div class="mainGaragem">
+					<div class="containerModalDetalhes" id="modalDetalhesMoto">
+						<div class="detalhesMoto">
+							<button id="fecharDetalhes" onclick="fecharModais()">X</button>
+							<div class="imagem">
+								<img src="" id="detalhesImagem" />
+							</div>
+							<div class="especificacoes">
+								<div class="marcaPreco">
+									<p>
+										<img src="" id="logoMarca" />
+										<span id="detalhesMarca"></span>
+									</p>
+									<p id="detalhesPreco"></p>
+								</div>
+
+								<div class="modelo">
+									<span id="detalhesModelo"></span
+									><img src="./assets/icones/buyed.png" id="modeloCheck" />
+								</div>
+								<div class="especificacoesTecnicas">
+									<div class="motorizacao">
+										<p>Cilindrada: <span id="detalhesCilindrada"></span>cc</p>
+										<p>Potência: <span id="detalhesPotencia"></span>cv</p>
+										<p>Torque: <span id="detalhesTorque"></span>kgf.m</p>
+									</div>
+
+									<div class="autonomia">
+										<p>Consumo: <span id="detalhesConsumo"></span>km/L</p>
+										<p>Tanque: <span id="detalhesTanque"></span>L</p>
+									</div>
+								</div>
+								<div class="botoes">
+									<button id="botaoSimular">SIMULAR</button>
+									<button id="botaoComprar" onclick="marcarMoto()">
+										<img src="./assets/icones/check-mark.png" />
+										COMPRAR
+									</button>
+									<button id="botaoVender" onclick="marcarMoto()">
+										<img src="./assets/icones/uncheck-mark.png" />
+										VENDER
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="motoAnterior">
+						<img
+							src="./assets/icones/arrow-left.png"
+							alt="icone de uma seta virada para esquerda"
+							onclick="anteriorMoto(`garagem`)" />
+					</div>
+					<div class="moto">
+						<img src="" id="motocicletaGetIn" />
+						<img
+							src=""
+							id="motocicletaAtual"
+							class=""
+							onclick="exibirDetalhes()" />
+					</div>
+					<div class="proximaMoto">
+						<img
+							src="./assets/icones/arrow-right.png"
+							alt="icone de uma seta virada para direita"
+							onclick="proximaMoto(`garagem`)" />
+					</div>
+				</div>
+				<div class="footerGaragem"></div>
+			</div>
+			<div class="backgroundLoja" id="telaLoja">
+				<div class="headerLoja">
+					<div class="voltar" onclick="trocarTela(`entrada`)">
+						<img
+							src="./assets/icones/arrow-left.png"
+							alt="icone de uma seta apontando para a esquerda" />
+						<span>VOLTAR</span>
+					</div>
+					<div class="user">
+						<img
+							src="./assets/icones/helmet-user-icon.png"
+							alt="imagem quadrada com a silhueta de um homem e fundo verde" />
+						<div class="userDescricao">
+							<div class="nome" id="userNome">PATRICK V.</div>
+							<div class="cidade">
+								<img
+									src="./assets/icones/location.png"
+									alt="icone de localização" />
+								<span id="userCidade">SÃO PAULO</span>
+							</div>
+						</div>
+					</div>
+					<div class="preco">
+						<span class="tituloPrecoTotal">Valor da Garagem</span>
+						<div class="caixaPreco">
+							<img src="./assets/icones/money.png" />
+							<div class="precoMotos">
+								R$<span id="precoTotalLoja">0,00</span>
+							</div>
+							<img
+								src="./assets/icones/info-circle.png"
+								style="filter: invert(100%)"
+								id="iconInfoPreco"
+								onmouseover="mostraInfo(`loja`)"
+								onmouseout="ocultaInfo()" />
+						</div>
+						<div class="infoPreco" id="infoPrecoLoja">
+							O preço da sua garagem é baseado no valor total das motos que você
+							adicionou a sua garagem
+						</div>
+					</div>
+					<div class="dashboard">
+						<img src="./assets/icones/infos.png" alt="Ir para a Dashboard" />
+						<span>DASHBOARD</span>
+					</div>
+				</div>
+				<div class="mainLoja">
+					<div class="motoAnterior">
+						<img
+							src="./assets/icones/arrow-left.png"
+							alt="icone de uma seta virada para esquerda"
+							onclick="anteriorMoto(`loja`)" />
+					</div>
+					<div class="containerMotoAtual">
+						<div class="sobreAMoto" id="modalMotosLoja">
+							<div class="header">
+								<span id="detalhesModeloLoja"></span>
+								<span id="detalhesPrecoLoja"></span>
+							</div>
+							<div class="subtitle">
+								<img src="" id="logoMarcaLoja" />
+								<span id="detalhesMarcaLoja"></span>
+							</div>
+							<div class="main">
+								<div class="motorizacaoLoja">
+									<p>
+										<span class="tituloDetalhe">Cilindrada:</span>
+										<span id="detalhesCilindradaLoja"></span>cc
+									</p>
+									<p>
+										<span class="tituloDetalhe">Potência:</span>
+										<span id="detalhesPotenciaLoja"></span>cv
+									</p>
+									<p>
+										<span class="tituloDetalhe">Torque:</span>
+										<span id="detalhesTorqueLoja"></span>kgf.m
+									</p>
+								</div>
+								<div class="especificacoesLoja">
+									<p>
+										<span class="tituloDetalhe">Consumo:</span>
+										<span id="detalhesConsumoLoja"></span>km/L
+									</p>
+									<p>
+										<span class="tituloDetalhe">Tanque:</span>
+										<span id="detalhesTanqueLoja"></span>L
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="moto">
+							<div class="modalMotos" id="modalAdicionar">
+								<div class="modalMotosDetalhes">
+									<p>Deseja adicionar essa moto na sua garagem?</p>
+									<span id="adicionarMarca"></span>
+									<span id="adicionarModelo"></span>
+								</div>
+								<div class="botoes">
+									<button class="botaoCancelar" onclick="fecharModais()">
+										<img src="./assets/icones/uncheck-mark.png" />
+										CANCELAR
+									</button>
+									<button class="botaoConfirmar" onclick="motoNaGaragem(false)">
+										<img src="./assets/icones/check-mark.png" />
+										CONFIRMAR
+									</button>
+								</div>
+							</div>
+							<div class="modalMotos" id="modalRemover">
+								<div class="modalMotosDetalhes">
+									<p>Deseja remover essa moto da sua garagem?</p>
+									<span id="removerMarca"></span>
+									<span id="removerModelo"></span>
+								</div>
+								<div class="botoes">
+									<button class="botaoCancelar" onclick="fecharModais()">
+										<img src="./assets/icones/uncheck-mark.png" />
+										CANCELAR
+									</button>
+									<button class="botaoConfirmar" onclick="motoNaGaragem(true)">
+										<img src="./assets/icones/check-mark.png" />
+										CONFIRMAR
+									</button>
+								</div>
+							</div>
+							<img src="" alt="" id="motocicletaGetInLoja" />
+							<img
+								src=""
+								alt=""
+								id="motocicletaAtualLoja"
+								class=""
+								onclick="modalModificarGaragem()" />
+						</div>
+					</div>
+					<div class="proximaMoto">
+						<img
+							src="./assets/icones/arrow-right.png"
+							alt="icone de uma seta virada para direita"
+							onclick="proximaMoto(`loja`)" />
+					</div>
+				</div>
+				<div class="footerLoja"></div>
+			</div>
+		</div>
+
+		<script src="./js/garagem.js"></script>
+	</body>
+</html>

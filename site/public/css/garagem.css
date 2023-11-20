@@ -25,335 +25,153 @@
 }
 
 body {
-	width: 100%;
-	height: 100vh;
+	width: 100vw;
+	height: auto;
 	background-color: var(--cor-primaria);
-	overflow-x: hidden;
-}
+	overflow: hidden;
 
-/* Header, navbar e menu */
-header {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: var(--cor-terciaria-1-opaca);
-	width: 100%;
-	height: 60px;
-	padding: 5px 0;
-	color: var(--cor-fonte-secundaria);
-	font-size: var(--tamanho-fonte);
-	letter-spacing: var(--espacamento-letra);
-}
-
-header .navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 80%;
-	height: auto;
-	margin: 0 10%;
-}
-
-header .navbar .logo {
-	width: 30%;
-	display: flex;
-	justify-content: start;
-	align-items: center;
-}
-
-header .navbar .logo img {
-	height: 75px;
-	width: auto;
-}
-
-header .navbar #marcaNavbar {
-	filter: invert(30%);
-	width: 40%;
-	rotate: 20deg;
-	position: absolute;
-	top: 0%;
-	right: -3%;
-	z-index: -1;
-}
-
-/* header .navbar #rodaMenu:hover {
-	rotate: 180deg;
-} */
-
-header .navbar .navOptions {
-	width: 40%;
-}
-
-header .navbar .navOptions .navItem {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	font-size: 18px;
-}
-
-/* header .navbar .navOptions .inativo:hover {
-	cursor: pointer;
-} */
-
-/* header .navbar .navOptions .ativo {
-	text-decoration: underline;
-} */
-
-header .navbar .menu {
-	display: flex;
-	justify-content: end;
-	align-items: center;
-	width: 30%;
-}
-header .navbar .menu img {
-	height: 65px;
-	width: auto;
-}
-
-main {
 	/* background-color: var(--cor-terciaria-1); */
-	width: 100%;
-	height: auto;
 	color: var(--cor-fonte-secundaria);
 	font-size: var(--tamanho-fonte);
 	/* letter-spacing: var(--espacamento-letra); */
 }
 
-/* Introdução e imagens de motos */
-.containerIntro {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	width: 80%;
-	height: auto;
-	margin: 0 10%;
-}
-
-.containerIntro .intro {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 100%;
-	width: 100%;
-}
-.containerIntro .intro img {
-	width: 800px;
-}
-.containerIntro .intro p {
-	width: 40%;
-	font-size: 30px;
-}
-.containerIntro .intro .imagemMoto {
-	width: 40%;
-}
-
-.containerIntro .trail img {
-	position: relative;
-	left: -90%;
-}
-.containerIntro .trail p {
-	text-align: start;
-}
-
-.containerIntro .speed img {
-	position: relative;
-	z-index: 1;
-}
-.containerIntro .speed p {
-	text-align: end;
-}
-
-.containerIntro #pistaoIntro {
-	filter: opacity(30%);
-	width: 3%;
-	rotate: -40deg;
-	position: absolute;
-	top: 15%;
-	left: 35%;
-	z-index: -1;
-}
-.containerIntro #amortecedorIntro {
-	filter: opacity(30%);
-	width: 5%;
-	rotate: 40deg;
-	position: absolute;
-	top: 30%;
-	right: 10%;
-	z-index: -1;
-}
-.containerIntro #ferramentasIntro {
-	filter: opacity(30%);
-	width: 5%;
-	rotate: 40deg;
-	position: absolute;
-	top: 90%;
-	right: 40%;
-	z-index: -1;
-}
-.containerIntro #velaIntro {
-	filter: opacity(30%);
-	width: 3%;
-	rotate: -40deg;
-	position: absolute;
-	top: 115%;
-	left: 20%;
-	z-index: -1;
-}
-
-/* sobre viajar de moto, contexto */
-.backgroundSobre {
-	background-image: url("../Rascunhos/Banco-de-Imagens/paisagem-floresta-rodovia.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	height: 600px;
-}
-.containerSobre {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	width: 90%;
-	height: auto;
-	margin: 0 5%;
-	padding: 5% 0;
-}
-
-.containerSobre h3 {
-	font-size: 30px;
-	margin-bottom: 8%;
-	background-color: var(--cor-secundaria-opaca);
-	color: var(--cor-primaria);
-	margin-right: 10px;
-	padding: 0 1%;
-	border-radius: 10px;
-}
-
-.containerSobre .contexto {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	color: var(--cor-secundaria);
-	width: 95%;
-	font-size: 20px;
-	padding: 3%;
-	border-radius: 10px;
-}
-.containerSobre .contexto p {
-	margin: 0 2%;
-	width: 34%;
-	background-color: hsla(0, 0%, 12%, 0.1);
-	border-radius: 10px;
-}
-
-.containerSobre .contexto .textLeft {
-	text-align: left;
-}
-.containerSobre .contexto .textRight {
-	text-align: right;
-}
-
-.containerSobre #marcaSobre {
-	filter: invert(30%);
-	width: 120%;
-	rotate: 5deg;
-	position: absolute;
-	top: 165%;
-	left: -3%;
-	z-index: 0;
-}
-
 /* seção garagem */
-.tampaMoto {
-	width: 10%;
-	height: 100vh;
-	position: absolute;
-	z-index: 2;
-	margin: 5% 0%;
-	background-color: var(--cor-primaria);
-}
-.tampaLeft {
-	left: 0%;
-}
-.tampaRight {
-	right: -1%;
-	width: 10.5%;
-}
-.containerGaragem {
-	text-align: center;
-	width: 80%;
-	height: 100vh;
-	margin: 5% 10%;
-}
-.containerGaragem h3 {
-	font-size: 30px;
-	margin-bottom: 3%;
-	color: var(--cor-secundaria);
-}
-
-.containerGaragem #telaEntrada {
+.containerGaragemDosSonhos {
 	width: 100%;
-	height: 90%;
-	background-image: url(../Rascunhos/Banco-de-Imagens/background-login.jpg);
+	height: 100vh;
+}
+.containerGaragemDosSonhos #telaEntrada {
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(
+			rgba(0, 0, 0, 0.6) 0%,
+			rgba(0, 0, 0, 0.6) 100%
+		),
+		url(../assets/backgrounds/background-entrada.jpg);
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	border: 3px solid black;
-	border-radius: 5px;
-	display: block;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
-.containerGaragem .backgroundLogin .containerLogin {
+
+.containerGaragemDosSonhos .backgroundEntrada button {
+	position: absolute;
+	top: 5%;
+	border-radius: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 12px;
+	font-size: 14px;
+	letter-spacing: var(--espacamento-letra);
+	border: outset 3px white;
+}
+
+.containerGaragemDosSonhos .backgroundEntrada #logout {
+	left: 5%;
+	width: 7%;
+	height: 6%;
+}
+
+.containerGaragemDosSonhos .backgroundEntrada #dashboard {
+	right: 5%;
+	width: 12%;
+	height: 6%;
+}
+
+.containerGaragemDosSonhos .backgroundEntrada button:hover {
+	cursor: pointer;
+}
+.containerGaragemDosSonhos .backgroundEntrada button:active {
+	border: inset 3px white;
+}
+
+.containerGaragemDosSonhos .backgroundEntrada button img {
+	height: 2.5vh;
+	/* filter: invert(100%); */
+}
+.containerGaragemDosSonhos .backgroundEntrada h1 {
+	display: flex;
+	justify-content: center;
+	align-items: end;
+	color: white;
+	letter-spacing: var(--espacamento-letra);
+	width: 100%;
+	height: 25%;
+}
+.containerGaragemDosSonhos .backgroundEntrada .containerEntrada {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
 	width: 100%;
-	height: 100%;
+	height: 75%;
 }
-.containerGaragem .backgroundLogin .containerLogin .botaoEntrar {
+.containerGaragemDosSonhos .backgroundEntrada .containerEntrada .botaoEntrar {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
-	width: 20%;
-	height: 40%;
-	background-color: var(--cor-terciaria-3-opaca);
+	width: 22%;
+	height: 58%;
+	background-color: var(--cor-secundaria);
 	border-radius: 10px;
 	border: outset 3px var(--cor-primaria-opaca);
 }
-.containerGaragem .backgroundLogin .containerLogin .botaoEntrar:hover {
+.containerGaragemDosSonhos
+	.backgroundEntrada
+	.containerEntrada
+	.botaoEntrar:hover {
 	cursor: pointer;
 }
-.containerGaragem .backgroundLogin .containerLogin .botaoEntrar:active {
+.containerGaragemDosSonhos
+	.backgroundEntrada
+	.containerEntrada
+	.botaoEntrar:active {
 	border: inset 3px var(--cor-primaria-opaca);
 }
-.containerGaragem .backgroundLogin .containerLogin .botaoEntrar p {
-	font-size: 22px;
-	font-weight: bold;
-	color: var(--cor-fonte-primaria);
-}
-.containerGaragem .backgroundLogin .containerLogin .botaoEntrar img {
-	height: 40%;
+.containerGaragemDosSonhos .backgroundEntrada .containerEntrada .botaoEntrar p {
+	display: flex;
+	justify-content: start;
+	align-items: center;
 	width: auto;
+	padding-right: 10%;
+	margin-right: 13%;
+	font-size: 24px;
+	font-weight: bold;
+	color: brown;
+	border-bottom: 1px solid brown;
 }
-.containerGaragem .backgroundLogin .containerLogin .loja img {
+.containerGaragemDosSonhos
+	.backgroundEntrada
+	.containerEntrada
+	.botaoEntrar
+	img {
 	height: 50%;
 	width: auto;
 }
+.containerGaragemDosSonhos .backgroundEntrada .containerEntrada .loja img {
+	height: 60%;
+	width: auto;
+}
+.containerGaragemDosSonhos .backgroundEntrada .containerEntrada .loja p {
+	margin-right: 35%;
+}
 
-.containerGaragem #telaGaragem {
+.containerGaragemDosSonhos #telaGaragem {
 	width: 100%;
-	height: 90%;
-	background-image: url(../Rascunhos/Banco-de-Imagens/background-garagem.png);
+	height: 100%;
+	background-image: url(../assets/backgrounds/background-garagem.png);
 	background-size: 100% 100%;
 	background-position: bottom;
 	background-repeat: no-repeat;
-	border: 3px solid black;
-	border-radius: 5px;
 	display: none;
 }
 
-.containerGaragem .backgroundGaragem .headerGaragem {
+.containerGaragemDosSonhos .backgroundGaragem .headerGaragem {
 	width: 100%;
 	height: 12%;
 	display: flex;
@@ -362,41 +180,49 @@ main {
 	background-color: var(--cor-primaria-opaca);
 }
 
-.containerGaragem .backgroundGaragem .headerGaragem .voltar {
-	width: 4%;
-	height: 55%;
+.containerGaragemDosSonhos .backgroundGaragem .headerGaragem .voltar {
+	width: 6%;
+	height: 75%;
 	border-radius: 10px;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	justify-content: space-evenly;
 	align-items: center;
 	margin: 0 12px;
 	border: outset 3px white;
 }
-.containerGaragem .backgroundGaragem .headerGaragem .voltar:hover {
+.containerGaragemDosSonhos .backgroundGaragem .headerGaragem .voltar:hover {
 	cursor: pointer;
 }
-.containerGaragem .backgroundGaragem .headerGaragem .voltar:active {
+.containerGaragemDosSonhos .backgroundGaragem .headerGaragem .voltar:active {
 	border: inset 3px white;
 }
 
-.containerGaragem .backgroundGaragem .headerGaragem .voltar img {
+.containerGaragemDosSonhos .backgroundGaragem .headerGaragem .voltar img {
 	height: 3vh;
 	filter: invert(100%);
 }
 
-.containerGaragem .backgroundGaragem .headerGaragem .user {
-	width: 40%;
+.containerGaragemDosSonhos .backgroundGaragem .headerGaragem .voltar span {
+	font-size: 10px;
+}
+.containerGaragemDosSonhos .backgroundGaragem .headerGaragem .user {
+	width: 44%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 }
 
-.containerGaragem .backgroundGaragem .headerGaragem .user img {
+.containerGaragemDosSonhos .backgroundGaragem .headerGaragem .user img {
 	height: 9vh;
 	border-radius: 5px;
 }
 
-.containerGaragem .backgroundGaragem .headerGaragem .user .userDescricao {
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.headerGaragem
+	.user
+	.userDescricao {
 	height: 8vh;
 	width: 85%;
 	display: flex;
@@ -405,11 +231,16 @@ main {
 	align-items: start;
 }
 
-.containerGaragem .backgroundGaragem .headerGaragem .user .userDescricao .nome {
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.headerGaragem
+	.user
+	.userDescricao
+	.nome {
 	font-size: 16px;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.headerGaragem
 	.user
@@ -420,7 +251,7 @@ main {
 	filter: invert(100%);
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.headerGaragem
 	.user
@@ -430,28 +261,44 @@ main {
 	font-size: 11px;
 }
 
-.containerGaragem .backgroundGaragem .headerGaragem .preco {
-	width: 40%;
+.containerGaragemDosSonhos .backgroundGaragem .headerGaragem .preco {
+	width: 44%;
 	height: 8vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: end;
 }
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.headerGaragem
+	.preco
+	.tituloPrecoTotal {
+	margin-right: 22px;
+}
 
-.containerGaragem .backgroundGaragem .headerGaragem .preco .caixaPreco {
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.headerGaragem
+	.preco
+	.caixaPreco {
 	display: flex;
 	justify-content: end;
 	align-items: center;
 	width: 100%;
 }
 
-.containerGaragem .backgroundGaragem .headerGaragem .preco .caixaPreco img {
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.headerGaragem
+	.preco
+	.caixaPreco
+	img {
 	height: 3vh;
-	margin-right: 10px;
+	margin-left: 5px;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.headerGaragem
 	.preco
@@ -460,59 +307,88 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: end;
-	min-width: 22%;
+	margin-left: 10px;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.headerGaragem
 	.preco
 	.caixaPreco
 	.precoMotos
-	#precoTotal {
-	margin-left: 2px;
+	#precoTotalGaragem {
+	margin-left: 5px;
 }
 
-.containerGaragem .backgroundGaragem .headerGaragem .adicionar {
-	width: 4%;
-	height: 55%;
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.headerGaragem
+	.preco
+	#infoPrecoGaragem {
+	position: absolute;
+	top: 10%;
+	right: 9%;
+	font-size: 11px;
+	background-color: black;
+	height: 40px;
+	width: 12%;
+	padding: 3px;
+	border-radius: 5px;
+	border: 1px solid white;
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.containerGaragemDosSonhos .backgroundGaragem .headerGaragem .adicionar {
+	width: 6%;
+	height: 75%;
 	border-radius: 10px;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	justify-content: space-evenly;
 	align-items: center;
 	margin: 0 12px;
 	border: outset 3px white;
 }
-.containerGaragem .backgroundGaragem .headerGaragem .adicionar:hover {
+.containerGaragemDosSonhos .backgroundGaragem .headerGaragem .adicionar:hover {
 	cursor: pointer;
 }
 
-.containerGaragem .backgroundGaragem .headerGaragem .adicionar:active {
+.containerGaragemDosSonhos .backgroundGaragem .headerGaragem .adicionar:active {
 	border: inset 3px white;
 }
 
-.containerGaragem .backgroundGaragem .headerGaragem .adicionar img {
+.containerGaragemDosSonhos .backgroundGaragem .headerGaragem .adicionar img {
 	height: 3vh;
 	filter: invert(100%);
 }
 
-.containerGaragem .backgroundGaragem .mainGaragem {
+.containerGaragemDosSonhos .backgroundGaragem .headerGaragem .adicionar span {
+	font-size: 10px;
+}
+
+.containerGaragemDosSonhos .backgroundGaragem .mainGaragem {
 	width: 100%;
 	height: 88%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
-.containerGaragem .backgroundGaragem .mainGaragem .containerModalDetalhes {
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerModalDetalhes {
 	position: absolute;
 	width: 80%;
 	height: 88%;
 	display: none;
 	justify-content: center;
 	align-items: center;
+	margin: 0 10%;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -521,7 +397,6 @@ main {
 	color: var(--cor-primaria);
 	width: 60%;
 	height: 50%;
-	margin-bottom: 6%;
 	border-radius: 10px;
 	z-index: 2;
 	padding: 20px;
@@ -530,14 +405,14 @@ main {
 	align-items: center;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
 	.detalhesMoto
 	#fecharDetalhes {
 	position: absolute;
-	top: 19%;
+	top: 24%;
 	left: 20%;
 	width: 25px;
 	height: 25px;
@@ -547,7 +422,7 @@ main {
 	font-size: 16px;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -556,7 +431,7 @@ main {
 	cursor: pointer;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -565,7 +440,7 @@ main {
 	border: inset 2px var(--cor-primaria-opaca);
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -574,7 +449,7 @@ main {
 	width: 50%;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -585,19 +460,20 @@ main {
 	height: auto;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
 	.detalhesMoto
 	.especificacoes {
 	width: 50%;
+	height: auto;
 	height: fit-content;
 	border: 2px solid var(--cor-primaria);
 	border-radius: 5px;
-	padding: 15px 10px;
+	padding: 10px;
 }
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -606,12 +482,13 @@ main {
 	p {
 	display: flex;
 	justify-content: start;
-	align-items: center;
+	align-items: end;
 	font-size: 16px;
 	font-weight: bold;
 	margin-bottom: 5px;
+	width: 50%;
 }
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -622,7 +499,7 @@ main {
 	margin-left: 5px;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -632,9 +509,10 @@ main {
 	display: flex;
 	justify-content: space-between;
 	border-bottom: 1px solid brown;
+	width: 100%;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -642,11 +520,11 @@ main {
 	.especificacoes
 	.marcaPreco
 	#logoMarca {
-	width: 10%;
-	height: auto;
+	height: 30px;
+	width: auto;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -659,7 +537,7 @@ main {
 	margin-left: 10px;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -669,9 +547,12 @@ main {
 	#detalhesPreco {
 	color: brown;
 	font-size: 22px;
+	display: flex;
+	justify-content: end;
+	align-items: end;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -688,7 +569,7 @@ main {
 	margin: 20px 0px 30px 0;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -699,7 +580,7 @@ main {
 	font-size: 28px;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -714,7 +595,7 @@ main {
 	margin-right: 10px;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -722,12 +603,12 @@ main {
 	.especificacoes
 	.especificacoesTecnicas {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: start;
 	width: 100%;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -739,7 +620,19 @@ main {
 	border-right: 1px solid var(--cor-primaria);
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerModalDetalhes
+	.detalhesMoto
+	.especificacoes
+	.especificacoesTecnicas
+	.autonomia {
+	padding-left: 10px;
+	text-align: start;
+}
+
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -753,7 +646,7 @@ main {
 	margin-top: 15px;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -771,7 +664,7 @@ main {
 	align-items: center;
 	padding: 10px;
 }
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -781,7 +674,7 @@ main {
 	button:hover {
 	cursor: pointer;
 }
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -791,7 +684,7 @@ main {
 	button:active {
 	border: inset 2px var(--cor-primaria-opaca);
 }
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -801,7 +694,7 @@ main {
 	#botaoComprar {
 	background-color: rgba(0, 100, 0, 0.8);
 }
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -813,7 +706,7 @@ main {
 	display: none;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.containerModalDetalhes
@@ -825,7 +718,7 @@ main {
 	height: 15px;
 }
 
-.containerGaragem .backgroundGaragem .mainGaragem .motoAnterior {
+.containerGaragemDosSonhos .backgroundGaragem .mainGaragem .motoAnterior {
 	height: 100%;
 	width: 10%;
 	display: flex;
@@ -833,16 +726,20 @@ main {
 	align-items: center;
 }
 
-.containerGaragem .backgroundGaragem .mainGaragem .motoAnterior img {
+.containerGaragemDosSonhos .backgroundGaragem .mainGaragem .motoAnterior img {
 	height: 8vh;
 	filter: invert(1);
 }
 
-.containerGaragem .backgroundGaragem .mainGaragem .motoAnterior img:hover {
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.motoAnterior
+	img:hover {
 	cursor: pointer;
 }
 
-.containerGaragem .backgroundGaragem .mainGaragem .moto {
+.containerGaragemDosSonhos .backgroundGaragem .mainGaragem .moto {
 	height: 100%;
 	width: 70%;
 	display: flex;
@@ -851,10 +748,10 @@ main {
 	padding-bottom: 20px;
 }
 
-.containerGaragem .backgroundGaragem .mainGaragem .moto img {
+.containerGaragemDosSonhos .backgroundGaragem .mainGaragem .moto img {
 	height: 300px;
 }
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
 	.moto
@@ -865,16 +762,10 @@ main {
 #motocicletaGetIn {
 	display: none;
 	position: absolute;
-	z-index: 1;
 	margin-right: 1500px;
 }
-#motocicletaGetOut {
-	position: absolute;
-	z-index: 1;
-	display: none;
-}
 
-.containerGaragem .backgroundGaragem .mainGaragem .proximaMoto {
+.containerGaragemDosSonhos .backgroundGaragem .mainGaragem .proximaMoto {
 	height: 100%;
 	width: 10%;
 	display: flex;
@@ -882,27 +773,29 @@ main {
 	align-items: center;
 }
 
-.containerGaragem .backgroundGaragem .mainGaragem .proximaMoto img {
+.containerGaragemDosSonhos .backgroundGaragem .mainGaragem .proximaMoto img {
 	height: 8vh;
 	filter: invert(1);
 }
-.containerGaragem .backgroundGaragem .mainGaragem .proximaMoto img:hover {
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.proximaMoto
+	img:hover {
 	cursor: pointer;
 }
 
-.containerGaragem #telaLoja {
+.containerGaragemDosSonhos #telaLoja {
 	width: 100%;
-	height: 90%;
-	background-image: url(../Rascunhos/Banco-de-Imagens/background-loja.png);
+	height: 100%;
+	background-image: url(../assets/backgrounds/background-loja.png);
 	background-size: 100% 100%;
 	background-position: bottom;
 	background-repeat: no-repeat;
-	border: 3px solid black;
-	border-radius: 5px;
 	display: none;
 }
 
-.containerGaragem .backgroundLoja .headerLoja {
+.containerGaragemDosSonhos .backgroundLoja .headerLoja {
 	width: 100%;
 	height: 12%;
 	display: flex;
@@ -911,38 +804,43 @@ main {
 	background-color: var(--cor-primaria-opaca);
 }
 
-.containerGaragem .backgroundLoja .headerLoja .voltar {
-	width: 4%;
-	height: 55%;
+.containerGaragemDosSonhos .backgroundLoja .headerLoja .voltar {
+	width: 6%;
+	height: 75%;
 	border-radius: 10px;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	justify-content: space-evenly;
 	align-items: center;
 	margin: 0 12px;
 	border: outset 3px white;
 }
-.containerGaragem .backgroundLoja .headerLoja .voltar:active {
+.containerGaragemDosSonhos .backgroundLoja .headerLoja .voltar:active {
 	border: inset 3px white;
 }
 
-.containerGaragem .backgroundLoja .headerLoja .voltar img {
+.containerGaragemDosSonhos .backgroundLoja .headerLoja .voltar img {
 	height: 3vh;
 	filter: invert(100%);
 }
 
-.containerGaragem .backgroundLoja .headerLoja .user {
-	width: 40%;
+.containerGaragemDosSonhos .backgroundLoja .headerLoja .voltar span {
+	font-size: 10px;
+}
+
+.containerGaragemDosSonhos .backgroundLoja .headerLoja .user {
+	width: 44%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.containerGaragem .backgroundLoja .headerLoja .user img {
+.containerGaragemDosSonhos .backgroundLoja .headerLoja .user img {
 	height: 9vh;
 	border-radius: 5px;
 }
 
-.containerGaragem .backgroundLoja .headerLoja .user .userDescricao {
+.containerGaragemDosSonhos .backgroundLoja .headerLoja .user .userDescricao {
 	height: 8vh;
 	width: 85%;
 	display: flex;
@@ -951,16 +849,27 @@ main {
 	align-items: start;
 }
 
-.containerGaragem .backgroundLoja .headerLoja .user .userDescricao .nome {
+.containerGaragemDosSonhos
+	.backgroundLoja
+	.headerLoja
+	.user
+	.userDescricao
+	.nome {
 	font-size: 16px;
 }
 
-.containerGaragem .backgroundLoja .headerLoja .user .userDescricao .cidade img {
+.containerGaragemDosSonhos
+	.backgroundLoja
+	.headerLoja
+	.user
+	.userDescricao
+	.cidade
+	img {
 	height: 3vh;
 	filter: invert(100%);
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundLoja
 	.headerLoja
 	.user
@@ -970,64 +879,98 @@ main {
 	font-size: 11px;
 }
 
-.containerGaragem .backgroundLoja .headerLoja .preco {
-	width: 40%;
+.containerGaragemDosSonhos .backgroundLoja .headerLoja .preco {
+	width: 44%;
 	height: 8vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: end;
 }
+.containerGaragemDosSonhos
+	.backgroundLoja
+	.headerLoja
+	.preco
+	.tituloPrecoTotal {
+	margin-right: 22px;
+}
 
-.containerGaragem .backgroundLoja .headerLoja .preco .caixaPreco {
+.containerGaragemDosSonhos .backgroundLoja .headerLoja .preco .caixaPreco {
 	display: flex;
 	justify-content: end;
 	align-items: center;
 	width: 100%;
 }
 
-.containerGaragem .backgroundLoja .headerLoja .preco .caixaPreco img {
+.containerGaragemDosSonhos .backgroundLoja .headerLoja .preco .caixaPreco img {
 	height: 3vh;
-	margin-right: 10px;
+	margin-left: 5px;
 }
 
-.containerGaragem .backgroundLoja .headerLoja .preco .caixaPreco .precoMotos {
+.containerGaragemDosSonhos
+	.backgroundLoja
+	.headerLoja
+	.preco
+	.caixaPreco
+	.precoMotos {
 	display: flex;
 	align-items: center;
 	justify-content: end;
-	min-width: 22%;
+	margin-left: 10px;
 }
 
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundLoja
 	.headerLoja
 	.preco
 	.caixaPreco
 	.precoMotos
-	#precoTotal {
-	margin-left: 2px;
+	#precoTotalLoja {
+	margin-left: 5px;
+}
+.containerGaragemDosSonhos .backgroundLoja .headerLoja .preco #infoPrecoLoja {
+	position: absolute;
+	top: 10%;
+	right: 9%;
+	font-size: 11px;
+	background-color: black;
+	height: 40px;
+	width: 12%;
+	padding: 3px;
+	border-radius: 5px;
+	border: 1px solid white;
+	display: none;
+	justify-content: center;
+	align-items: center;
 }
 
-.containerGaragem .backgroundLoja .headerLoja .dashboard {
-	width: 4%;
-	height: 55%;
+.containerGaragemDosSonhos .backgroundLoja .headerLoja .dashboard {
+	width: 6%;
+	height: 75%;
 	border-radius: 10px;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	justify-content: space-evenly;
 	align-items: center;
 	margin: 0 12px;
 	border: outset 3px white;
 }
+.containerGaragemDosSonhos .backgroundLoja .headerLoja .dashboard:hover {
+	cursor: pointer;
+}
 
-.containerGaragem .backgroundLoja .headerLoja .dashboard:active {
+.containerGaragemDosSonhos .backgroundLoja .headerLoja .dashboard:active {
 	border: inset 3px white;
 }
 
-.containerGaragem .backgroundLoja .headerLoja .dashboard img {
-	height: 4vh;
+.containerGaragemDosSonhos .backgroundLoja .headerLoja .dashboard img {
+	height: 3vh;
 	filter: invert(100%);
 }
-.containerGaragem .backgroundLoja .mainLoja {
+.containerGaragemDosSonhos .backgroundLoja .headerLoja .dashboard span {
+	font-size: 10px;
+}
+.containerGaragemDosSonhos .backgroundLoja .mainLoja {
 	width: 100%;
 	height: 88%;
 	display: flex;
@@ -1035,7 +978,7 @@ main {
 	align-items: center;
 }
 
-.containerGaragem .backgroundLoja .mainLoja .motoAnterior {
+.containerGaragemDosSonhos .backgroundLoja .mainLoja .motoAnterior {
 	height: 100%;
 	width: 10%;
 	display: flex;
@@ -1043,16 +986,16 @@ main {
 	align-items: center;
 }
 
-.containerGaragem .backgroundLoja .mainLoja .motoAnterior img {
+.containerGaragemDosSonhos .backgroundLoja .mainLoja .motoAnterior img {
 	height: 8vh;
 	filter: invert(1);
 }
 
-.containerGaragem .backgroundLoja .mainLoja .motoAnterior img:hover {
+.containerGaragemDosSonhos .backgroundLoja .mainLoja .motoAnterior img:hover {
 	cursor: pointer;
 }
 
-.containerGaragem .backgroundLoja .mainLoja .containerMotoAtual {
+.containerGaragemDosSonhos .backgroundLoja .mainLoja .containerMotoAtual {
 	min-height: 100%;
 	width: 70%;
 	display: flex;
@@ -1060,7 +1003,11 @@ main {
 	justify-content: end;
 	align-items: center;
 }
-.containerGaragem .backgroundLoja .mainLoja .containerMotoAtual .sobreAMoto {
+.containerGaragemDosSonhos
+	.backgroundLoja
+	.mainLoja
+	.containerMotoAtual
+	.sobreAMoto {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -1073,7 +1020,15 @@ main {
 	margin: 5px 0px 10px 0px;
 	padding: 10px 5px;
 }
-.containerGaragem
+.containerGaragemDosSonhos
+	.backgroundLoja
+	.mainLoja
+	.containerMotoAtual
+	.sobreAMoto
+	.tituloDetalhe {
+	font-weight: bold;
+}
+.containerGaragemDosSonhos
 	.backgroundLoja
 	.mainLoja
 	.containerMotoAtual
@@ -1085,8 +1040,7 @@ main {
 	font-size: 22px;
 	font-weight: bold;
 	width: 85%;
-	padding-bottom: 10px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	border-bottom: 2px solid brown;
 	letter-spacing: var(--espacamento-letra);
 }
@@ -1094,7 +1048,7 @@ main {
 	color: brown;
 	font-size: 24px;
 }
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundLoja
 	.mainLoja
 	.containerMotoAtual
@@ -1102,14 +1056,18 @@ main {
 	.subtitle {
 	display: flex;
 	justify-content: start;
-	align-items: center;
+	align-items: end;
 	width: 85%;
 	font-size: 18px;
 	font-weight: bold;
 	letter-spacing: var(--espacamento-letra);
 	margin-bottom: 10px;
 }
-.containerGaragem
+#logoMarcaLoja {
+	height: 30px;
+	margin-right: 5px;
+}
+.containerGaragemDosSonhos
 	.backgroundLoja
 	.mainLoja
 	.containerMotoAtual
@@ -1122,7 +1080,7 @@ main {
 	height: 60px;
 	letter-spacing: var(--espacamento-letra);
 }
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundLoja
 	.mainLoja
 	.containerMotoAtual
@@ -1137,7 +1095,7 @@ main {
 	width: 50%;
 	height: 100%;
 }
-.containerGaragem
+.containerGaragemDosSonhos
 	.backgroundLoja
 	.mainLoja
 	.containerMotoAtual
@@ -1152,17 +1110,8 @@ main {
 	width: 50%;
 	height: 100%;
 }
-.containerGaragem
-	.backgroundLoja
-	.mainLoja
-	.containerMotoAtual
-	.sobreAMoto
-	.main
-	.tituloDetalhe {
-	font-weight: bold;
-}
 
-.containerGaragem .backgroundLoja .mainLoja .containerMotoAtual .moto {
+.containerGaragemDosSonhos .backgroundLoja .mainLoja .containerMotoAtual .moto {
 	max-height: 60%;
 	width: 70%;
 	display: flex;
@@ -1170,7 +1119,145 @@ main {
 	align-items: end;
 }
 
-.containerGaragem .backgroundLoja .mainLoja .containerMotoAtual .moto img {
+.containerGaragemDosSonhos
+	.backgroundLoja
+	.mainLoja
+	.containerMotoAtual
+	.moto
+	.modalMotos {
+	position: absolute;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 20%;
+	width: 50%;
+	color: var(--cor-primaria);
+	background-color: hsla(0, 0%, 78%, 0.9);
+	border-radius: 10px;
+	margin: 5px 0px 40px 0px;
+	padding: 10px 5px;
+}
+.containerGaragemDosSonhos
+	.backgroundLoja
+	.mainLoja
+	.containerMotoAtual
+	.moto
+	.modalMotos
+	.modalMotosDetalhes
+	p {
+	font-size: 19px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.containerGaragemDosSonhos
+	.backgroundLoja
+	.mainLoja
+	.containerMotoAtual
+	.moto
+	.modalMotos
+	.modalMotosDetalhes
+	span {
+	font-size: 22px;
+	color: brown;
+	font-weight: bold;
+}
+
+.containerGaragemDosSonhos
+	.backgroundLoja
+	.mainLoja
+	.containerMotoAtual
+	.moto
+	.modalMotos
+	.botoes {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 100%;
+	margin-top: 15px;
+}
+
+.containerGaragemDosSonhos
+	.backgroundLoja
+	.mainLoja
+	.containerMotoAtual
+	.moto
+	.modalMotos
+	.botoes
+	button {
+	width: 25%;
+	height: 32px;
+	border-radius: 25px;
+	font-size: 14px;
+	border: outset 2px var(--cor-primaria-opaca);
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 10px;
+}
+
+.containerGaragemDosSonhos
+	.backgroundLoja
+	.mainLoja
+	.containerMotoAtual
+	.moto
+	.modalMotos
+	.botoes
+	button:hover {
+	cursor: pointer;
+}
+
+.containerGaragemDosSonhos
+	.backgroundLoja
+	.mainLoja
+	.containerMotoAtual
+	.moto
+	.modalMotos
+	.botoes
+	button:active {
+	border: inset 2px var(--cor-primaria-opaca);
+}
+
+.containerGaragemDosSonhos
+	.backgroundLoja
+	.mainLoja
+	.containerMotoAtual
+	.moto
+	.modalMotos
+	.botoes
+	.botaoConfirmar {
+	background-color: rgba(0, 100, 0, 0.8);
+}
+
+.containerGaragemDosSonhos
+	.backgroundLoja
+	.mainLoja
+	.containerMotoAtual
+	.moto
+	.modalMotos
+	.botoes
+	.botaoCancelar {
+	background-color: rgba(100, 0, 0, 0.8);
+}
+
+.containerGaragemDosSonhos
+	.backgroundLoja
+	.mainLoja
+	.containerMotoAtual
+	.moto
+	.modalMotos
+	.botoes
+	img {
+	width: auto;
+	height: 15px;
+}
+
+.containerGaragemDosSonhos
+	.backgroundLoja
+	.mainLoja
+	.containerMotoAtual
+	.moto
+	img {
 	max-height: 280px;
 }
 
@@ -1183,13 +1270,8 @@ main {
 	z-index: 1;
 	margin-right: 1500px;
 }
-#motocicletaGetOutLoja {
-	position: absolute;
-	z-index: 1;
-	display: none;
-}
 
-.containerGaragem .backgroundLoja .mainLoja .proximaMoto {
+.containerGaragemDosSonhos .backgroundLoja .mainLoja .proximaMoto {
 	height: 100%;
 	width: 10%;
 	display: flex;
@@ -1197,11 +1279,11 @@ main {
 	align-items: center;
 }
 
-.containerGaragem .backgroundLoja .mainLoja .proximaMoto img {
+.containerGaragemDosSonhos .backgroundLoja .mainLoja .proximaMoto img {
 	height: 8vh;
 	filter: invert(1);
 }
-.containerGaragem .backgroundLoja .mainLoja .proximaMoto img:hover {
+.containerGaragemDosSonhos .backgroundLoja .mainLoja .proximaMoto img:hover {
 	cursor: pointer;
 }
 

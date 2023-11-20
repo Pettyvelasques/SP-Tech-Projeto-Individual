@@ -1,0 +1,834 @@
+:root {
+	--cor-primaria: hsl(0, 0%, 12%);
+	--cor-primaria-opaca: hsla(0, 0%, 12%, 0.8);
+	--cor-secundaria: hsl(0, 0%, 88%);
+	--cor-secundaria-opaca: hsl(0, 0%, 88%, 0.55);
+	--cor-terciaria-1: hsl(0, 0%, 22%);
+	--cor-terciaria-1-opaca: hsla(0, 0%, 22%, 0.8);
+	--cor-terciaria-2: hsl(0, 0%, 30%);
+	--cor-terciaria-2-opaca: hsla(0, 0%, 30%, 0.8);
+	--cor-terciaria-3: hsl(0, 0%, 78%);
+	--cor-terciaria-3-opaca: hsla(0, 0%, 78%, 0.8);
+	--cor-hover: red;
+	--opacidade-padrao: rgba(0, 0, 0, 0.6);
+	--fonte-principal: "arial";
+	--tamanho-fonte: 16px;
+	--cor-fonte-primaria: hsl(0, 0%, 0%);
+	--cor-fonte-secundaria: hsl(0, 0%, 100%);
+	--espacamento-letra: 1px;
+	--altura-linha: 30px;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	width: 100%;
+	height: 100vh;
+	background-color: var(--cor-primaria);
+	overflow-x: hidden;
+}
+
+/* Header, navbar e menu */
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--cor-terciaria-1);
+	width: 100%;
+	height: 60px;
+	padding: 5px 0;
+	color: var(--cor-fonte-secundaria);
+	font-size: var(--tamanho-fonte);
+	letter-spacing: var(--espacamento-letra);
+}
+header .navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 80%;
+	height: 100%;
+	margin: 0 10%;
+}
+
+header .navbar .logo {
+	width: 30%;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+}
+
+header .navbar .logo img {
+	height: 75px;
+	width: auto;
+}
+
+header .navbar #marcaNavbar {
+	filter: invert(30%);
+	width: 40%;
+	rotate: 20deg;
+	position: absolute;
+	top: 0%;
+	right: -3%;
+	z-index: -1;
+}
+
+/* header .navbar #rodaMenu:hover {
+	rotate: 180deg;
+} */
+
+header .navbar .navOpcoes {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 40%;
+	height: 100%;
+}
+
+header .navbar .navOpcoes .navItem {
+	width: 100%;
+	font-size: 18px;
+	text-align: center;
+}
+
+/* header .navbar .navOptions .inativo:hover {
+	cursor: pointer;
+} */
+
+/* header .navbar .navOptions .ativo {
+	text-decoration: underline;
+} */
+
+header .navbar .menu {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	width: 30%;
+	height: 100%;
+}
+
+header .navbar .menu .menuHamburguer {
+	width: 38px;
+	height: 60px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+header .navbar .menu .menuHamburguer:hover {
+	cursor: pointer;
+}
+
+header .navbar .menu .menuHamburguer span {
+	width: 100%;
+	height: 12%;
+	margin: 2.5px 0;
+	background-color: var(--cor-secundaria);
+	border-radius: 5px;
+}
+
+header .navbar .menu #closeMenuNavbar {
+	width: auto;
+	height: 20px;
+	filter: invert(90%);
+	/* display: block; */
+	display: none;
+}
+
+header .navbar .menu #closeMenuNavbar:hover {
+	cursor: pointer;
+}
+
+header .navbar .menu #menuOpcoes {
+	position: absolute;
+	top: 60px;
+	right: 10%;
+	/* display: flex; */
+	display: none;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: end;
+	width: auto;
+	height: 100px;
+	padding: 15px;
+	font-size: 15px;
+	border-end-start-radius: 5px;
+	border-end-end-radius: 5px;
+	background-color: var(--cor-terciaria-1);
+}
+header .navbar .menu #menuOpcoes .menuItem {
+	text-decoration: none;
+	border: none;
+	color: var(--cor-fonte-secundaria);
+}
+header .navbar .menu #menuOpcoes .menuItem:hover {
+	cursor: pointer;
+}
+
+main {
+	/* background-color: var(--cor-terciaria-1); */
+	width: 100%;
+	height: auto;
+	color: var(--cor-fonte-secundaria);
+	font-size: var(--tamanho-fonte);
+	/* letter-spacing: var(--espacamento-letra); */
+}
+
+/* Introdução e imagens de motos */
+.containerIntro {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 80%;
+	height: auto;
+	margin: 0 10%;
+}
+
+.containerIntro .intro {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+}
+.containerIntro .intro img {
+	width: 800px;
+}
+.containerIntro .intro p {
+	width: 40%;
+	font-size: 30px;
+}
+.containerIntro .intro .imagemMoto {
+	width: 40%;
+}
+
+.containerIntro .trail img {
+	position: relative;
+	left: -90%;
+}
+.containerIntro .trail p {
+	text-align: start;
+}
+
+.containerIntro .speed img {
+	position: relative;
+	z-index: 2;
+}
+.containerIntro .speed p {
+	text-align: end;
+}
+
+.containerIntro #pistaoIntro {
+	filter: opacity(30%);
+	width: 3%;
+	rotate: -40deg;
+	position: absolute;
+	top: 15%;
+	left: 35%;
+	z-index: -1;
+}
+.containerIntro #amortecedorIntro {
+	filter: opacity(30%);
+	width: 5%;
+	rotate: 40deg;
+	position: absolute;
+	top: 30%;
+	right: 10%;
+	z-index: -1;
+}
+.containerIntro #ferramentasIntro {
+	filter: opacity(30%);
+	width: 5%;
+	rotate: 40deg;
+	position: absolute;
+	top: 90%;
+	right: 40%;
+	z-index: -1;
+}
+.containerIntro #velaIntro {
+	filter: opacity(30%);
+	width: 3%;
+	rotate: -40deg;
+	position: absolute;
+	top: 115%;
+	left: 20%;
+	z-index: -1;
+}
+
+/* sobre viajar de moto, contexto */
+.backgroundSobre {
+	background-image: url("../assets/main/paisagem-floresta-rodovia.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 600px;
+}
+.containerSobre {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 90%;
+	height: auto;
+	margin: 0 5%;
+	padding: 5% 0;
+}
+
+.containerSobre h3 {
+	font-size: 30px;
+	margin-bottom: 8%;
+	background-color: var(--cor-secundaria-opaca);
+	color: var(--cor-primaria);
+	margin-right: 10px;
+	padding: 0 1%;
+	border-radius: 10px;
+}
+
+.containerSobre .contexto {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: var(--cor-secundaria);
+	width: 95%;
+	font-size: 20px;
+	padding: 3%;
+	border-radius: 10px;
+}
+.containerSobre .contexto p {
+	margin: 0 2%;
+	width: 34%;
+	background-color: hsla(0, 0%, 12%, 0.1);
+	border-radius: 10px;
+}
+
+.containerSobre .contexto .textLeft {
+	text-align: left;
+}
+.containerSobre .contexto .textRight {
+	text-align: right;
+}
+
+.containerSobre #marcaSobre {
+	filter: invert(30%);
+	width: 120%;
+	rotate: 5deg;
+	position: absolute;
+	top: 165%;
+	left: -3%;
+	z-index: 1;
+}
+
+.containerSobre #gradientImage01 {
+	position: absolute;
+	width: 100%;
+	height: 300px;
+	top: 161%;
+	background: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 0) 0%,
+		rgba(0, 0, 0, 0.2) 20%,
+		rgba(0, 0, 0, 0.7) 50%,
+		rgba(0, 0, 0, 0.2) 80%,
+		rgba(0, 0, 0, 0) 100%
+	);
+	z-index: 0;
+}
+
+.containerSobre #gradientImage02 {
+	position: absolute;
+	width: 100%;
+	height: 300px;
+	top: 266%;
+	background: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 0) 0%,
+		rgba(0, 0, 0, 0.2) 20%,
+		rgba(0, 0, 0, 0.7) 50%,
+		rgba(0, 0, 0, 0.2) 80%,
+		rgba(0, 0, 0, 0) 100%
+	);
+	z-index: 2;
+}
+
+/* seção garagem */
+.containerGaragemDosSonhos {
+	text-align: center;
+	width: 80%;
+	height: 100vh;
+	margin: 5% 10%;
+}
+.containerGaragemDosSonhos h3 {
+	font-size: 30px;
+	margin-bottom: 3%;
+	color: white;
+	z-index: 3;
+}
+.containerGaragemDosSonhos #telaLoginCadastro {
+	width: 100%;
+	height: 90%;
+	background-image: url("../assets/backgrounds/background-login.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border: 3px solid black;
+	border-radius: 5px;
+	display: flex;
+	justify-content: start;
+}
+
+#gradientImage03 {
+	position: absolute;
+	width: 100%;
+	height: 90%;
+	top: 315%;
+	left: 0;
+	background: linear-gradient(
+		to right,
+		rgba(0, 0, 0, 0) 0%,
+		rgba(0, 0, 0, 0.2) 20%,
+		rgba(0, 0, 0, 0.4) 42%,
+		rgba(0, 0, 0, 0.6) 50%,
+		rgba(0, 0, 0, 0.4) 58%,
+		rgba(0, 0, 0, 0.2) 80%,
+		rgba(0, 0, 0, 0) 100%
+	);
+	z-index: 0;
+}
+
+.containerGaragemDosSonhos .backgroundLogin .containerLoginCadastro {
+	width: 50%;
+	height: 100%;
+	background-color: rgba(10, 10, 30, 0.8);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+}
+
+.alerta_erro {
+	display: none;
+	justify-content: flex-end;
+	position: absolute;
+	top: 320%;
+	height: auto;
+	width: 20%;
+}
+
+.card_erro {
+	display: flex;
+	background-color: rgba(13, 17, 33, 0.95);
+	color: var(--cor-fonte-secundaria);
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	border: var(--cor-secundaria-opaca) 3px solid;
+	padding: 10px 20px;
+}
+
+.card_erro #mensagem_erro {
+	font-weight: 500;
+	font-size: 15px;
+}
+
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerCadastro {
+	width: 55%;
+	height: 65%;
+	display: none;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	border-radius: 10px;
+	background-color: rgba(115, 120, 190, 0.4);
+}
+
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerCadastro
+	#logarSe {
+	position: absolute;
+	padding: 2px 10px;
+	top: 320%;
+	right: 44%;
+	font-size: 14px;
+	color: var(--cor-fonte-secundaria);
+	border-radius: 15px;
+	border: 1.5px outset rgba(255, 255, 255, 0.5);
+	z-index: 1;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerCadastro
+	#logarSe:active {
+	border-style: inset;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerCadastro
+	#logarSe:hover {
+	cursor: pointer;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerCadastro
+	.imagemUsuarioLogin {
+	width: 30%;
+}
+
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerCadastro
+	input {
+	width: 75%;
+	margin-left: 5%;
+	background: transparent;
+	border: none;
+	border-bottom: 2px solid var(--cor-fonte-secundaria);
+	color: var(--cor-fonte-secundaria);
+	font-size: 14px;
+	letter-spacing: var(--espacamento-letra);
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerCadastro
+	input::-webkit-input-placeholder {
+	color: var(--cor-fonte-secundaria);
+	font-size: 13px;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerCadastro
+	input:focus {
+	box-shadow: 0 0 0 0;
+	outline: 0;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerCadastro
+	input:focus::-webkit-input-placeholder {
+	color: transparent;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerCadastro
+	input:hover {
+	cursor: pointer;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerCadastro
+	button {
+	width: 60%;
+	height: 10%;
+	border-radius: 10px;
+	background-color: rgba(13, 17, 33, 0.85);
+	color: var(--cor-fonte-secundaria);
+}
+
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin {
+	width: 55%;
+	height: 65%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	background-color: rgba(115, 120, 190, 0.4);
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	#cadastrarSe {
+	position: absolute;
+	padding: 2px 5px;
+	top: 320%;
+	left: 42%;
+	font-size: 14px;
+	color: var(--cor-fonte-secundaria);
+	border-radius: 15px;
+	border: 1.5px outset rgba(255, 255, 255, 0.5);
+	z-index: 1;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	#cadastrarSe:active {
+	border-style: inset;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	#cadastrarSe:hover {
+	cursor: pointer;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.imagemUsuarioLogin {
+	width: 40%;
+	margin-bottom: 40px;
+}
+
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.usernameLogin {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	width: 80%;
+	margin-bottom: 15px;
+	border-bottom: 2px solid var(--cor-fonte-secundaria);
+	padding-bottom: 4px;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.usernameLogin
+	img {
+	width: 8%;
+	filter: invert(100%);
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.usernameLogin
+	input {
+	width: 75%;
+	margin: 0 5%;
+	background: transparent;
+	border: none;
+	color: var(--cor-fonte-secundaria);
+	font-size: 14px;
+	letter-spacing: var(--espacamento-letra);
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.usernameLogin
+	input::-webkit-input-placeholder {
+	color: var(--cor-fonte-secundaria);
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.usernameLogin
+	input:focus {
+	box-shadow: 0 0 0 0;
+	border: 0 none;
+	outline: 0;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.usernameLogin
+	input:focus::-webkit-input-placeholder {
+	color: transparent;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.usernameLogin
+	input:hover {
+	cursor: pointer;
+}
+
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.passwordLogin {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	width: 80%;
+	margin-bottom: 5px;
+	border-bottom: 2px solid var(--cor-fonte-secundaria);
+	padding-bottom: 4px;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.passwordLogin
+	.imagemPasswordLogin {
+	width: 6.5%;
+	filter: invert(70%);
+}
+
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.passwordLogin
+	.displayPasswordLogin {
+	height: 20px;
+	width: auto;
+	filter: invert(100%);
+}
+
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.passwordLogin
+	.displayPasswordLogin:hover {
+	cursor: pointer;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.passwordLogin
+	input {
+	width: 75%;
+	margin: 0 5% 0 6.5%;
+	background: transparent;
+	border: none;
+	color: var(--cor-fonte-secundaria);
+	font-size: 14px;
+	letter-spacing: var(--espacamento-letra);
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.passwordLogin
+	input::-webkit-input-placeholder {
+	color: var(--cor-fonte-secundaria);
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.passwordLogin
+	input:focus {
+	box-shadow: 0 0 0 0;
+	border: 0 none;
+	outline: 0;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.passwordLogin
+	input:focus::-webkit-input-placeholder {
+	color: transparent;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.passwordLogin
+	input:hover {
+	cursor: pointer;
+}
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.esqueciSenha {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	width: 80%;
+	margin-bottom: 15px;
+	color: var(--cor-fonte-secundaria);
+	font-size: 8px;
+	font-family: arial;
+	letter-spacing: normal;
+}
+
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	.esqueciSenha:hover {
+	cursor: pointer;
+}
+
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	button {
+	width: 60%;
+	height: 10%;
+	border-radius: 10px;
+	background-color: rgba(13, 17, 33, 0.85);
+	color: var(--cor-fonte-secundaria);
+}
+
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	button:hover {
+	cursor: pointer;
+}
+
+.containerGaragemDosSonhos
+	.backgroundLogin
+	.containerLoginCadastro
+	.containerLogin
+	button:active {
+	border-style: inset;
+}
+
+/* CLASSES DE ANIMAÇÃO DOS SLIDERS */
+.menuOn {
+	animation: entraMenu 1s;
+}
+.menuOff {
+	animation: saiMenu 1s;
+}
+
+/* KEYFRAMES DE ANIMAÇÃO DO MENU DA NAVBAR */
+
+@keyframes entraMenu {
+	0% {
+		top: -130px;
+	}
+
+	100% {
+		top: 60px;
+	}
+}
+@keyframes saiMenu {
+	0% {
+		top: 60px;
+	}
+
+	100% {
+		top: -130px;
+	}
+}

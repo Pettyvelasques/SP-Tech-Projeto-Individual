@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Reisen Garage</title>
+		<link rel="stylesheet" href="./css/style.css" />
+	</head>
+	<body>
+		<header>
+			<div class="navbar">
+				<div class="logo">
+					<img src="./assets/icones/logo-site.png" />
+				</div>
+				<div class="navOpcoes">
+					<span class="navItem ativo" id="navGaragem"
+						>PROJETO GARAGEM DOS SONHOS</span
+					>
+					<!-- <span>|</span>
+					<span class="navItem inativo" id="navViagens">VIAGENS</span> -->
+				</div>
+				<div class="menu">
+					<div class="menuHamburguer" id="menuHamburguer" onclick="menu()">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<img
+						src="./assets/icones/close-icon.png"
+						id="closeMenuNavbar"
+						onclick="menu()" />
+					<div id="menuOpcoes">
+						<a class="menuItem" href="#containerSobre">SOBRE</a>
+						<a class="menuItem" href="#containerGaragem">GARAGEM</a>
+						<a class="menuItem" href="#containerSimulador">SIMULADOR</a>
+						<a class="menuItem" href="#containerAutor">AUTOR</a>
+					</div>
+				</div>
+				<img src="./assets/main/marca-pneu-1-2.png" id="marcaNavbar" />
+			</div>
+		</header>
+		<main>
+			<div class="containerIntro">
+				<div class="intro trail" id="motoTrail">
+					<div class="imagemMoto">
+						<img src="./assets/main/triumph-tiger-900.png" />
+					</div>
+					<p>Sabe aquela sensação de liberdade que você sente ao viajar...</p>
+				</div>
+				<img src="./assets/main/pistao-1.png" id="pistaoIntro" />
+				<img src="./assets/main/amortecedores-1.png" id="amortecedorIntro" />
+				<img
+					src="./assets/main/ferramentas-manuais-1.png"
+					id="ferramentasIntro" />
+				<img src="./assets/main/vela-1.png" id="velaIntro" />
+				<div class="intro speed" id="motoSpeed">
+					<p>Ou aquela paz que estar em meio a natureza te proporciona...</p>
+					<div class="imagemMoto">
+						<img src="./assets/main/kawasaki-ninja-zx10R.png" />
+					</div>
+				</div>
+			</div>
+			<div class="backgroundSobre">
+				<div class="containerSobre" id="containerSobre">
+					<img
+						src="./assets/main/marca-pneu-1-2-comprido.png"
+						id="marcaSobre" />
+					<div id="gradientImage01"></div>
+					<div id="gradientImage02"></div>
+					<h3>Porque não juntar os dois?</h3>
+					<div class="contexto">
+						<p class="textLeft">
+							Você sabia que, além da sensação de liberdade e aventura que
+							viajar de moto nos proporciona, há também uma conexão com o
+							ambiente ao redor. <br />
+							Motociclistas experimentam uma proximidade única com as paisagens,
+							podendo sentir o vento, o cheiro e os sons da estrada de maneira
+							intensa, tornando a viagem uma experiência sensorial enriquecedora
+							e uma sensação de plenitude sem igual.
+						</p>
+						<p class="textRight">
+							Além disso, viajar de moto permite uma maior flexibilidade e
+							agilidade no trânsito, evitando congestionamentos e facilitando a
+							locomoção em áreas de difícil acesso. <br />
+							É também uma opção econômica no quesito consumo de combustível e,
+							para muitos, uma oportunidade de socialização, pois não é nada
+							incomum que os motociclistas compartilhem suas histórias e
+							experiências com outros viajantes.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="containerGaragemDosSonhos" id="containerGaragem">
+				<h3>MINHA GARAGEM DOS SONHOS</h3>
+				<div class="backgroundLogin" id="telaLoginCadastro">
+					<div id="gradientImage03"></div>
+					<div class="containerLoginCadastro">
+						<div class="alerta_erro" id="alertaErro">
+							<div class="card_erro" id="cardErro">
+								<span id="mensagem_erro">Nome do usuário inválido<br><br>O campo nome deve conter mais de 01 caractere</span>
+							</div>
+						</div>
+						<div class="containerCadastro" id="containerCadastro">
+							<span id="logarSe" onclick="loginCadastro(`login`)">Logar</span>
+							<img
+								src="./assets/icones/helmet-user-icon.png"
+								class="imagemUsuarioLogin" />
+							<input type="text" id="usuarioCadastro" placeholder="Usuario" />
+							<input
+								type="text"
+								id="nomeCadastro"
+								placeholder="Primeiro Nome" />
+							<input
+								type="text"
+								id="sobrenomeCadastro"
+								placeholder="Sobrenome" />
+							<input type="text" id="cidadeCadastro" placeholder="Cidade" />
+							<input type="text" id="emailCadastro" placeholder="E-mail" />
+							<input type="text" id="senhaCadastro" placeholder="Senha" />
+							<input
+								type="text"
+								id="confimarSenha"
+								placeholder="Confirmar senha" />
+							<button onclick="cadastrar()">Cadastrar-se</button>
+						</div>
+						<div class="containerLogin" id="containerLogin">
+							<span id="cadastrarSe" onclick="loginCadastro(`cadastro`)"
+								>Cadastrar-se</span
+							>
+							<img
+								src="./assets/icones/helmet-user-icon.png"
+								class="imagemUsuarioLogin" />
+							<div class="usernameLogin">
+								<img
+									src="./assets/icones/username-icon.png"
+									class="imagemUsernameLogin" />
+								<input
+									type="text"
+									placeholder="Usuario"
+									class="inputUsernameLogin"
+									id="inputUsernameLogin" />
+							</div>
+							<div class="passwordLogin">
+								<img
+									src="./assets/icones/password-icon.png"
+									class="imagemPasswordLogin" />
+								<input
+									type="password"
+									placeholder="Senha"
+									class="inputSenhaLogin"
+									id="inputSenhaLogin" />
+								<img
+									src="./assets/icones/show-password-icon.png"
+									class="displayPasswordLogin"
+									id="eyePassword"
+									onclick="mostrarSenha()" />
+							</div>
+							<div class="esqueciSenha">ESQUECEU A SENHA?</div>
+							<button onclick="cadastrar()">Login</button>
+						</div>
+					</div>
+				</div>
+
+			<div class="containerSimulador" id="containerSimulador">
+				<span>a</span>
+			</div>
+			<div class="containerAutor" id="containerAutor">
+				<span>a</span>
+			</div>
+		</main>
+
+		<script src="./js/script.js"></script>
+	</body>
+</html>

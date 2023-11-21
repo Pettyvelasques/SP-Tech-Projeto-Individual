@@ -41,12 +41,12 @@
 							src="./assets/icones/helmet-user-icon.png"
 							alt="imagem quadrada com a silhueta de um homem e fundo verde" />
 						<div class="userDescricao">
-							<div class="nome" id="userNome">PATRICK V.</div>
+							<div class="nome" id="userNomeGaragem">GUEST</div>
 							<div class="cidade">
 								<img
 									src="./assets/icones/location.png"
 									alt="icone de localização" />
-								<span id="userCidade">SÃO PAULO</span>
+								<span id="userCidadeGaragem">CITY</span>
 							</div>
 						</div>
 					</div>
@@ -127,8 +127,12 @@
 							onclick="anteriorMoto(`garagem`)" />
 					</div>
 					<div class="moto">
-						<img src="" id="motocicletaGetIn" />
 						<img
+							onerror='this.style.display = "none"'
+							src=""
+							id="motocicletaGetIn" />
+						<img
+							onerror='this.style.display = "none"'
 							src=""
 							id="motocicletaAtual"
 							class=""
@@ -156,12 +160,12 @@
 							src="./assets/icones/helmet-user-icon.png"
 							alt="imagem quadrada com a silhueta de um homem e fundo verde" />
 						<div class="userDescricao">
-							<div class="nome" id="userNome">PATRICK V.</div>
+							<div class="nome" id="userNomeLoja">GUEST</div>
 							<div class="cidade">
 								<img
 									src="./assets/icones/location.png"
 									alt="icone de localização" />
-								<span id="userCidade">SÃO PAULO</span>
+								<span id="userCidadeLoja">CITY</span>
 							</div>
 						</div>
 					</div>
@@ -184,7 +188,7 @@
 							adicionou a sua garagem
 						</div>
 					</div>
-					<div class="dashboard">
+					<div class="dashboard" onclick="toDash()">
 						<img src="./assets/icones/infos.png" alt="Ir para a Dashboard" />
 						<span>DASHBOARD</span>
 					</div>
@@ -245,7 +249,7 @@
 										<img src="./assets/icones/uncheck-mark.png" />
 										CANCELAR
 									</button>
-									<button class="botaoConfirmar" onclick="motoNaGaragem(false)">
+									<button class="botaoConfirmar" onclick="motoNaGaragem()">
 										<img src="./assets/icones/check-mark.png" />
 										CONFIRMAR
 									</button>
@@ -262,7 +266,7 @@
 										<img src="./assets/icones/uncheck-mark.png" />
 										CANCELAR
 									</button>
-									<button class="botaoConfirmar" onclick="motoNaGaragem(true)">
+									<button class="botaoConfirmar" onclick="motoNaGaragem()">
 										<img src="./assets/icones/check-mark.png" />
 										CONFIRMAR
 									</button>

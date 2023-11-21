@@ -40,6 +40,7 @@ insert into moto values
 (null, 'Vulcan 900', 'Kawasaki', 38125, 903, 50, 8, 18.2, 20),
 (null, 'Shadow 600', 'Honda', 26669, 583, 39, 5.1, 18, 11);
 
+
 create table motoNaGaragem(
 fkGaragem int,
 fkUsuario int,
@@ -54,3 +55,19 @@ foreign key (fkMoto) references moto(idMoto)
 select * from usuario;
 select * from garagem;
 select * from moto;
+select * from motoNaGaragem;
+
+select m.idMoto, m.modelo, m.marca, m.preco, m.cilindrada, m.potencia, m.torque, m.consumo, m.tanque, mg.motoComprada from motoNaGaragem as mg
+	join moto as m
+		on fkMoto = idMoto
+	where mg.fkUsuario = 1;
+
+SELECT u.idUsuario, u.username, u.nome, u.sobrenome, u.cidade, g.idGaragem FROM usuario as u join garagem as g on fkUsuario = idUsuario WHERE username = 'pettyvelasques' AND senha = 'pet123';
+
+select * from moto;
+
+insert into motoNaGaragem values (1, 1, 1, 0);
+
+update motoNaGaragem set motoComprada = 1 where fkMoto=1;
+
+delete from motoNaGaragem where fkGaragem=1 and fkUsuario=1 and fkMoto=2;

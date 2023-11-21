@@ -1,17 +1,17 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+var garagemModel = require("../models/garagemModel");
 
 function autenticar(req, res) {
-	var email = req.body.emailServer;
+	var username = req.body.usernameServer;
 	var senha = req.body.senhaServer;
 
-	if (email == undefined) {
+	if (username == undefined) {
 		res.status(400).send("Seu email está undefined!");
 	} else if (senha == undefined) {
 		res.status(400).send("Sua senha está undefined!");
 	} else {
 		usuarioModel
-			.autenticar(email, senha)
+			.autenticar(username, senha)
 			.then(function (resultadoAutenticar) {
 				console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
 				console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
@@ -19,20 +19,33 @@ function autenticar(req, res) {
 				if (resultadoAutenticar.length == 1) {
 					console.log(resultadoAutenticar);
 
-					aquarioModel
-						.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-						.then((resultadoAquarios) => {
-							if (resultadoAquarios.length > 0) {
-								res.json({
-									id: resultadoAutenticar[0].id,
-									email: resultadoAutenticar[0].email,
-									nome: resultadoAutenticar[0].nome,
-									cpf: resultadoAutenticar[0].cpf,
-									senha: resultadoAutenticar[0].senha,
-									aquarios: resultadoAquarios,
+					garagemModel
+						.buscarMotosPorUsuario(resultadoAutenticar[0].idUsuario)
+						.then((resultadoMotos) => {
+							if (resultadoMotos.length >= 0) {
+								console.log(resultadoMotos);
+
+								garagemModel.buscarMotosLoja().then((resultadoMotosLoja) => {
+									if (resultadoMotosLoja.length > 0) {
+										console.log(resultadoMotosLoja);
+
+										res.json({
+											id: resultadoAutenticar[0].idUsuario,
+											username: resultadoAutenticar[0].username,
+											nome: resultadoAutenticar[0].nome,
+											sobrenome: resultadoAutenticar[0].sobrenome,
+											cidade: resultadoAutenticar[0].cidade,
+											senha: resultadoAutenticar[0].senha,
+											idGaragem: resultadoAutenticar[0].idGaragem,
+											motosUsuario: resultadoMotos,
+											motosLoja: resultadoMotosLoja,
+										});
+									} else {
+										res.status(204).json({ motosLoja: [] });
+									}
 								});
 							} else {
-								res.status(204).json({ aquarios: [] });
+								res.status(204).json({ motosUsuario: [] });
 							}
 						});
 				} else if (resultadoAutenticar.length == 0) {

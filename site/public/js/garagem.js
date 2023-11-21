@@ -10,25 +10,86 @@ function exibirDetalhes() {
 
 // MARCAR MOTO COMO "JÁ POSSUI"
 function marcarMoto() {
+	// var possuiMoto = [];
+	// var indexAtual = 0;
+	// var motosNaGaragem = [];
+	var modelo = motosNaGaragem[indexAtual];
+	console.log(modelo);
+	var temMotoVar;
+	var fkMotoVar;
+
 	var checkMoto = document.getElementById("modeloCheck");
 	var botaoCompra = document.getElementById("botaoComprar");
 	var botaoVenda = document.getElementById("botaoVender");
 
-	if (possuiMoto == true) {
+	if (modelo == "shadow-750") {
+		fkMotoVar = shadow750.idMoto;
+	} else if (modelo == "shadow-600") {
+		fkMotoVar = shadow600.idMoto;
+	} else if (modelo == "boulevard-800") {
+		fkMotoVar = boulevard800.idMoto;
+	} else if (modelo == "virago-535") {
+		fkMotoVar = virago535.idMoto;
+	} else if (modelo == "dragstar-650") {
+		fkMotoVar = dragstar650.idMoto;
+	} else if (modelo == "midnight-950") {
+		fkMotoVar = midnight950.idMoto;
+	} else if (modelo == "vulcan-900") {
+		fkMotoVar = vulcan900.idMoto;
+	} else {
+		console.log(`erro ao resgatar nome da moto.. valor da variavel:${modelo}`);
+		return false;
+	}
+	console.log(fkMotoVar);
+
+	if (possuiMoto[indexAtual] == 1) {
 		botaoVenda.style = "display: none;";
 		botaoCompra.style = "display: flex;";
-		checkMoto.src = ".//assets/icones/buyed.png";
+		checkMoto.src = "./assets/icones/buyed.png";
 		checkMoto.style = "filter: opacity(30%);";
-		possuiMoto = false;
-	} else if (possuiMoto == false) {
+		possuiMoto[indexAtual] = 0;
+		temMotoVar = 0;
+	} else if (possuiMoto[indexAtual] == 0) {
 		botaoVenda.style = "display: flex;";
 		botaoCompra.style = "display: none;";
-		checkMoto.src = ".//assets/icones/buyed-check.png";
+		checkMoto.src = "./assets/icones/buyed-check.png";
 		checkMoto.style = "filter: brightness(90%);";
-		possuiMoto = true;
+		possuiMoto[indexAtual] = 1;
+		temMotoVar = 1;
 	} else {
-		console.log(`erro ao (des)marcar moto.. valor da variavel:${possuiMoto}`);
+		console.log(
+			`erro ao (des)marcar moto.. valor da variavel:${possuiMoto[indexAtual]}`
+		);
 	}
+	console.log(temMotoVar);
+	fetch("/garagens/possuiMoto", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({
+			fkMotoServer: fkMotoVar,
+			temMotoServer: temMotoVar,
+		}),
+	})
+		.then(function (resposta) {
+			console.log("resposta: ", resposta);
+
+			if (resposta.ok) {
+				// motosNaGaragem.push(motosNaLoja[indexAtualLoja]);
+				// possuiMoto.push(0);
+				// atualizarValorGaragem();
+				// fecharModais();
+				// alertaErro.style.display = "flex";
+				// mensagem_erro.innerHTML = "Moto adicionada a sua garagem...";
+			} else {
+				throw "Houve um erro ao marcar a moto como comprada!";
+			}
+		})
+		.catch(function (resposta) {
+			console.log(`#ERRO: ${resposta}`);
+		});
+	return false;
 }
 
 //
@@ -36,7 +97,7 @@ function marcarMoto() {
 
 // MODAL PARA ADIÇÃO DE MOTOS NA GARAGEM
 function modalModificarGaragem() {
-	var adicionadaGaragem = motosNaGaragem.indexOf(motosLoja[indexAtualLoja]);
+	var adicionadaGaragem = motosNaGaragem.indexOf(motosNaLoja[indexAtualLoja]);
 	var modalAdd = document.getElementById("modalAdicionar");
 	var modalRemove = document.getElementById("modalRemover");
 
@@ -55,31 +116,117 @@ function modalModificarGaragem() {
 
 // FUNÇÃO DO MODAL PARA ADICIONAR MOTOS NA GARAGEM
 
-function motoNaGaragem(msg) {
-	var possuiNaGaragem = msg;
-	var adicionadaGaragem = motosNaGaragem.indexOf(motosLoja[indexAtualLoja]);
+function motoNaGaragem() {
+	var modelo = motosNaLoja[indexAtualLoja];
+	var indiceModelo = motosNaGaragem.indexOf(modelo);
+	var motoComprada = possuiMoto[indiceModelo];
 
-	if (possuiMoto == true) {
+	var fkUsuarioVar = sessionStorage.ID_USUARIO;
+	var fkGaragemVar = sessionStorage.ID_GARAGEM;
+	var fkMotoVar;
+
+	if (modelo == "shadow-750") {
+		fkMotoVar = shadow750.idMoto;
+	} else if (modelo == "shadow-600") {
+		fkMotoVar = shadow600.idMoto;
+	} else if (modelo == "boulevard-800") {
+		fkMotoVar = boulevard800.idMoto;
+	} else if (modelo == "virago-535") {
+		fkMotoVar = virago535.idMoto;
+	} else if (modelo == "dragstar-650") {
+		fkMotoVar = dragstar650.idMoto;
+	} else if (modelo == "midnight-950") {
+		fkMotoVar = midnight950.idMoto;
+	} else if (modelo == "vulcan-900") {
+		fkMotoVar = vulcan900.idMoto;
+	} else {
+		console.log(`erro ao resgatar nome da moto.. valor da variavel:${modelo}`);
+		return false;
+	}
+
+	console.log(motoComprada);
+	console.log(indiceModelo);
+
+	if (motoComprada == 1) {
 		console.log(
 			`Impossível remover da garagem uma moto que você ainda não vendeu!`
 		);
-	} else if (possuiNaGaragem == false && possuiMoto == false) {
-		motosNaGaragem.push(motosLoja[indexAtualLoja]);
-	} else if (possuiNaGaragem == true && possuiMoto == false) {
-		motosNaGaragem.splice(adicionadaGaragem, 1);
-	} else {
-		console.log(
-			`erro ao adicionar/remover moto na garagem.. valor da variavel:${msg}`
-		);
+		return false;
+	} else if (indiceModelo == -1) {
+		fetch("/garagens/cadastrar", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				// crie um atributo que recebe o valor recuperado aqui
+				// Agora vá para o arquivo routes/usuario.js
+				fkUsuarioServer: fkUsuarioVar,
+				fkGaragemServer: fkGaragemVar,
+				fkMotoServer: fkMotoVar,
+			}),
+		})
+			.then(function (resposta) {
+				console.log("resposta: ", resposta);
+
+				if (resposta.ok) {
+					motosNaGaragem.push(motosNaLoja[indexAtualLoja]);
+					possuiMoto.push(0);
+
+					atualizarValorGaragem();
+					fecharModais();
+					// alertaErro.style.display = "flex";
+
+					// mensagem_erro.innerHTML = "Moto adicionada a sua garagem...";
+				} else {
+					throw "Houve um erro ao adicionar a moto na garagem!";
+				}
+			})
+			.catch(function (resposta) {
+				console.log(`#ERRO: ${resposta}`);
+			});
+		return false;
+	} else if (indiceModelo != -1) {
+		fetch("/garagens/deletar", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				// crie um atributo que recebe o valor recuperado aqui
+				// Agora vá para o arquivo routes/usuario.js
+				fkUsuarioServer: fkUsuarioVar,
+				fkGaragemServer: fkGaragemVar,
+				fkMotoServer: fkMotoVar,
+			}),
+		})
+			.then(function (resposta) {
+				console.log("resposta: ", resposta);
+
+				if (resposta.ok) {
+					motosNaGaragem.splice(indiceModelo, 1);
+					possuiMoto.splice(indiceModelo, 1);
+
+					atualizarValorGaragem();
+					fecharModais();
+					// alertaErro.style.display = "flex";
+
+					// mensagem_erro.innerHTML = "Moto removida da sua garagem...";
+				} else {
+					throw "Houve um erro ao remover a moto da garagem!";
+				}
+			})
+			.catch(function (resposta) {
+				console.log(`#ERRO: ${resposta}`);
+			});
+		return false;
 	}
-	atualizarValorGaragem();
-	fecharModais();
 }
 
 //
 // 		FUNÇÕES GLOBAIS
 
-//
+//FUNÇÃO MOSTRA INFORMAÇÕES SOBRE VALOR DA GARAGEM
 function mostraInfo(locate) {
 	var modal;
 	if (locate == "garagem") {
@@ -103,6 +250,7 @@ function toDash() {
 	window.location.href = "./dashboard/dashboard.html";
 }
 function deslogar() {
+	sessionStorage.clear();
 	window.location.href = "./index.html";
 }
 
@@ -112,6 +260,9 @@ function trocarTela(tela) {
 	var loja = document.getElementById("telaLoja");
 	var garagem = document.getElementById("telaGaragem");
 	var modalDetalhes = document.getElementById("modalDetalhesMoto");
+	var userSession =
+		sessionStorage.NOME_USUARIO + sessionStorage.SOBRENOME_USUARIO[0] + `.`;
+	var cidadeSession = sessionStorage.CIDADE_USUARIO;
 
 	entrada.style = "display: none;";
 	loja.style = "display: none;";
@@ -121,10 +272,20 @@ function trocarTela(tela) {
 	if (tela == "entrada") {
 		entrada.style = "display: flex;";
 	} else if (tela == "loja") {
-		indexAtualLoja = motosLoja.length - 1;
+		var username = document.getElementById("userNomeLoja");
+		var cidade = document.getElementById("userCidadeLoja");
+		username.innerHTML = userSession.toUpperCase();
+		cidade.innerHTML = cidadeSession.toUpperCase();
+
+		indexAtualLoja = motosNaLoja.length - 1;
 		proximaMoto(`loja`);
 		loja.style = "display: block;";
 	} else if (tela == "garagem") {
+		var username = document.getElementById("userNomeGaragem");
+		var cidade = document.getElementById("userCidadeGaragem");
+		username.innerHTML = userSession.toUpperCase();
+		cidade.innerHTML = cidadeSession.toUpperCase();
+
 		indexAtual = motosNaGaragem.length - 1;
 		proximaMoto(`garagem`);
 		garagem.style = "display: block;";
@@ -150,7 +311,7 @@ function anteriorMoto(locate) {
 		imagemMotoAtual = document.getElementById("motocicletaAtualLoja");
 		imagemMotoOut = document.getElementById("motocicletaGetInLoja");
 		var modalEspecificacoes = document.getElementById("modalMotosLoja");
-		arrayMotos = motosLoja;
+		arrayMotos = motosNaLoja;
 		indiceAtual = indexAtualLoja;
 		modalEspecificacoes.style = `display: none`;
 	} else if (locate == "garagem") {
@@ -181,25 +342,27 @@ function anteriorMoto(locate) {
 		}
 		indiceAtual -= 1;
 	}
-	imagemMotoOut.src = `.//assets/motos/${arrayMotos[indiceAtual]}.png`;
+	imagemMotoOut.src = `./assets/motos/${arrayMotos[indiceAtual]}.png`;
 	imagemMotoOut.style = `margin-right: 1500px; margin-left: 0; display: block`;
 	imagemMotoOut.classList = `motoLeftIn`;
 
 	imagemMotoAtual.classList = `motoLeftOut`;
 
 	mudarValoresModal(locate, arrayMotos[indiceAtual]);
+
 	setTimeout(() => {
 		imagemMotoOut.classList = ``;
 		imagemMotoOut.style = `display: none`;
 
-		imagemMotoAtual.src = `.//assets/motos/${arrayMotos[indiceAtual]}.png`;
+		imagemMotoAtual.src = `./assets/motos/${arrayMotos[indiceAtual]}.png`;
 		imagemMotoAtual.setAttribute("class", arrayMotos[indiceAtual]);
 		imagemMotoAtual.style = `display: block`;
+
+		executandoAnimacao = 0;
 
 		if (locate == "loja") {
 			modalEspecificacoes.style = `display: flex`;
 		}
-		executandoAnimacao = 0;
 	}, 900);
 }
 
@@ -219,7 +382,7 @@ function proximaMoto(locate) {
 		imagemMotoAtual = document.getElementById("motocicletaAtualLoja");
 		imagemMotoOut = document.getElementById("motocicletaGetInLoja");
 		var modalEspecificacoes = document.getElementById("modalMotosLoja");
-		arrayMotos = motosLoja;
+		arrayMotos = motosNaLoja;
 		indiceAtual = indexAtualLoja;
 		modalEspecificacoes.style = `display: none`;
 	} else if (locate == "garagem") {
@@ -251,18 +414,19 @@ function proximaMoto(locate) {
 		indiceAtual += 1;
 	}
 
-	imagemMotoOut.src = `.//assets/motos/${arrayMotos[indiceAtual]}.png`;
+	imagemMotoOut.src = `./assets/motos/${arrayMotos[indiceAtual]}.png`;
 	imagemMotoOut.style = `margin-right: 0; margin-left:1500px; display: block`;
 	imagemMotoOut.classList = `motoRightIn`;
 
 	imagemMotoAtual.classList = `motoRightOut`;
 
 	mudarValoresModal(locate, arrayMotos[indiceAtual]);
+
 	setTimeout(() => {
 		imagemMotoOut.classList = ``;
 		imagemMotoOut.style = `display: none`;
 
-		imagemMotoAtual.src = `.//assets/motos/${arrayMotos[indiceAtual]}.png`;
+		imagemMotoAtual.src = `./assets/motos/${arrayMotos[indiceAtual]}.png`;
 		imagemMotoAtual.setAttribute("class", arrayMotos[indiceAtual]);
 		imagemMotoAtual.style = `display: block`;
 
@@ -272,6 +436,80 @@ function proximaMoto(locate) {
 			modalEspecificacoes.style = `display: flex`;
 		}
 	}, 900);
+}
+
+//
+function atualizarMotosGaragem(data) {
+	var motos = JSON.parse(data);
+
+	for (contador = 0; contador < motos.length; contador++) {
+		var indexMoto = motos[contador];
+
+		if (indexMoto.modelo == "Shadow 750") {
+			motosNaGaragem.push(`shadow-750`);
+			possuiMoto.push(indexMoto.motoComprada);
+		} else if (indexMoto.modelo == "Shadow 600") {
+			motosNaGaragem.push(`shadow-600`);
+			possuiMoto.push(indexMoto.motoComprada);
+		} else if (indexMoto.modelo == "Boulevard 800") {
+			motosNaGaragem.push(`boulevard-800`);
+			possuiMoto.push(indexMoto.motoComprada);
+		} else if (indexMoto.modelo == "Virago 535") {
+			motosNaGaragem.push(`virago-535`);
+			possuiMoto.push(indexMoto.motoComprada);
+		} else if (indexMoto.modelo == "Dragstar 650") {
+			motosNaGaragem.push(`dragstar-650`);
+			possuiMoto.push(indexMoto.motoComprada);
+		} else if (indexMoto.modelo == "Midnight 950") {
+			motosNaGaragem.push(`midnight-950`);
+			possuiMoto.push(indexMoto.motoComprada);
+		} else if (indexMoto.modelo == "Vulcan 900") {
+			motosNaGaragem.push(`vulcan-900`);
+			possuiMoto.push(indexMoto.motoComprada);
+		}
+	}
+
+	console.log(motos);
+	console.log(`motos na garagem ${motosNaGaragem}`);
+}
+function atualizarMotosLoja(data) {
+	var motos = JSON.parse(data);
+
+	for (contador = 0; contador < motos.length; contador++) {
+		var indexMoto = motos[contador];
+
+		if (indexMoto.modelo == "Shadow 750") {
+			motosNaLoja.push(`shadow-750`);
+			shadow750 = motos[contador];
+			console.log(shadow750);
+		} else if (indexMoto.modelo == "Shadow 600") {
+			motosNaLoja.push(`shadow-600`);
+			shadow600 = motos[contador];
+			console.log(shadow600);
+		} else if (indexMoto.modelo == "Boulevard 800") {
+			motosNaLoja.push(`boulevard-800`);
+			boulevard800 = motos[contador];
+			console.log(boulevard800);
+		} else if (indexMoto.modelo == "Virago 535") {
+			motosNaLoja.push(`virago-535`);
+			virago535 = motos[contador];
+			console.log(virago535);
+		} else if (indexMoto.modelo == "Dragstar 650") {
+			motosNaLoja.push(`dragstar-650`);
+			dragstar650 = motos[contador];
+			console.log(dragstar650);
+		} else if (indexMoto.modelo == "Midnight 950") {
+			motosNaLoja.push(`midnight-950`);
+			midnight950 = motos[contador];
+			console.log(midnight950);
+		} else if (indexMoto.modelo == "Vulcan 900") {
+			motosNaLoja.push(`vulcan-900`);
+			vulcan900 = motos[contador];
+			console.log(vulcan900);
+		}
+	}
+
+	console.log(`motos na loja ${motosNaLoja}`);
 }
 
 // FUNÇÃO PARA ATUALIZAR O VALOR DA GARAGEM
@@ -301,9 +539,13 @@ function atualizarValorGaragem() {
 	}
 
 	valorGaragem = valorGaragem.toString();
+	var correcaoString =
+		valorGaragem[valorGaragem.length - 3] +
+		valorGaragem[valorGaragem.length - 2] +
+		valorGaragem[valorGaragem.length - 1];
 	var correcaoPreco = valorGaragem.replace(
-		valorGaragem[valorGaragem.length - 4],
-		valorGaragem[valorGaragem.length - 4] + "."
+		correcaoString,
+		"." + correcaoString
 	);
 	valorSecaoGaragem.innerHTML = correcaoPreco + ",00";
 	valorSecaoLoja.innerHTML = correcaoPreco + ",00";
@@ -374,16 +616,20 @@ function mudarValoresModal(locate, value) {
 		var consumo = document.getElementById("detalhesConsumo");
 		var tanque = document.getElementById("detalhesTanque");
 
-		imagem.src = `.//assets/motos/${value}.png`;
+		var checkMoto = document.getElementById("modeloCheck");
+		var botaoCompra = document.getElementById("botaoComprar");
+		var botaoVenda = document.getElementById("botaoVender");
+		imagem.src = `./assets/motos/${value}.png`;
 	}
 
-	var correcaoPreco = motoAtual.preco.replace(
-		motoAtual.preco[motoAtual.preco.length - 4],
-		motoAtual.preco[motoAtual.preco.length - 4] + "."
+	var motoAtualPreco = motoAtual.preco.toString();
+	var correcaoPreco = motoAtualPreco.replace(
+		motoAtualPreco[motoAtualPreco.length - 4],
+		motoAtualPreco[motoAtualPreco.length - 4] + "."
 	);
 	preco.innerHTML = "R$ " + correcaoPreco + ",00";
 
-	logo.src = `.//assets/logomarcas/logo-${motoAtual.marca}.png`;
+	logo.src = `./assets/logomarcas/logo-${motoAtual.marca}.png`;
 	marca.innerHTML = motoAtual.marca;
 	modelo.innerHTML = motoAtual.modelo;
 	cilindrada.innerHTML = motoAtual.cilindrada;
@@ -391,107 +637,47 @@ function mudarValoresModal(locate, value) {
 	torque.innerHTML = motoAtual.torque;
 	consumo.innerHTML = motoAtual.consumo;
 	tanque.innerHTML = motoAtual.tanque;
+	if (locate == "garagem" && possuiMoto[indexAtual] == 0) {
+		botaoVenda.style = "display: none;";
+		botaoCompra.style = "display: flex;";
+		checkMoto.src = "./assets/icones/buyed.png";
+		checkMoto.style = "filter: opacity(30%);";
+	} else if (locate == "garagem" && possuiMoto[indexAtual] == 1) {
+		botaoVenda.style = "display: flex;";
+		botaoCompra.style = "display: none;";
+		checkMoto.src = "./assets/icones/buyed-check.png";
+		checkMoto.style = "filter: brightness(90%);";
+	}
 }
 
 //
 // DECLARAÇÃO DAS VARIAVEIS GLOBAIS
 var executandoAnimacao = 0;
-var possuiMoto = false;
+var possuiMoto = [];
 
 var indexAtual = 0;
-var motosNaGaragem = ["shadow-750", "shadow-600"];
+var motosNaGaragem = [];
 
 var indexAtualLoja = 0;
-var motosLoja = [
-	"shadow-750",
-	"shadow-600",
-	"boulevard-800",
-	"virago-535",
-	"dragstar-650",
-	"midnight-950",
-	"vulcan-900",
-];
+var motosNaLoja = [];
 
 //
 // DECLARAÇÃO DOS OBJETOS MOTOS
-const shadow750 = {
-	modelo: "Shadow 750",
-	marca: "Honda",
-	preco: "41435",
-	cilindrada: "745",
-	potencia: "45,5",
-	torque: "6,5",
-	consumo: "18,5",
-	tanque: "14,6",
-};
+var shadow750 = {};
 
-const shadow600 = {
-	modelo: "Shadow 600",
-	marca: "Honda",
-	preco: "26669",
-	cilindrada: "583",
-	potencia: "39",
-	torque: "5,1",
-	consumo: "18",
-	tanque: "11",
-};
+var shadow600 = {};
 
-const boulevard800 = {
-	modelo: "Boulevard 800",
-	marca: "Suzuki",
-	preco: "42329",
-	cilindrada: "805",
-	potencia: "55",
-	torque: "6,7",
-	consumo: "15",
-	tanque: "15,5",
-};
+var boulevard800 = {};
 
-const virago535 = {
-	modelo: "Virago 535",
-	marca: "Yamaha",
-	preco: "19800",
-	cilindrada: "535",
-	potencia: "45",
-	torque: "4,56",
-	consumo: "17,1",
-	tanque: "13,5",
-};
+var virago535 = {};
 
-const dragstar650 = {
-	modelo: "Dragstar 650",
-	marca: "Yamaha",
-	preco: "28101",
-	cilindrada: "649",
-	potencia: "39,4",
-	torque: "5,1",
-	consumo: "19",
-	tanque: "16",
-};
+var dragstar650 = {};
 
-const midnight950 = {
-	modelo: "Midnight 950",
-	marca: "Yamaha",
-	preco: "45412",
-	cilindrada: "942",
-	potencia: "53,6",
-	torque: "7,83",
-	consumo: "17",
-	tanque: "17",
-};
+var midnight950 = {};
 
-const vulcan900 = {
-	modelo: "Vulcan 900",
-	marca: "Kawasaki",
-	preco: "38125",
-	cilindrada: "903",
-	potencia: "50",
-	torque: "8",
-	consumo: "18,2",
-	tanque: "20",
-};
+var vulcan900 = {};
 
-const usuarioPatrick = {
-	username: "pettyvelasques",
-	senha: "pet123",
-};
+var motosGaragem = sessionStorage.MOTOS_USUARIO;
+var motosLoja = sessionStorage.MOTOS_LOJA;
+atualizarMotosGaragem(motosGaragem);
+atualizarMotosLoja(motosLoja);

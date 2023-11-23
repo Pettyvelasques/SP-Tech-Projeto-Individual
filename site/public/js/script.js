@@ -22,7 +22,7 @@ function menu() {
 			menu.style = "display: none;";
 			hamburguer.style = "display: flex;";
 			menu.classList = ``;
-		}, 1000);
+		}, 950);
 	}
 }
 
@@ -160,8 +160,6 @@ function entrar() {
 				console.log(resposta);
 
 				resposta.json().then((json) => {
-					console.log(json);
-					console.log(JSON.stringify(json));
 					sessionStorage.ID_USUARIO = json.id;
 					sessionStorage.USERNAME_USUARIO = json.username;
 					sessionStorage.NOME_USUARIO = json.nome;

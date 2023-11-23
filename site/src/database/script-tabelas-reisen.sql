@@ -66,8 +66,21 @@ SELECT u.idUsuario, u.username, u.nome, u.sobrenome, u.cidade, g.idGaragem FROM 
 
 select * from moto;
 
-insert into motoNaGaragem values (1, 1, 1, 0);
+insert into motoNaGaragem values (1, 1, 2, 0);
 
 update motoNaGaragem set motoComprada = 1 where fkMoto=1;
 
 delete from motoNaGaragem where fkGaragem=1 and fkUsuario=1 and fkMoto=2;
+
+    
+select count(fkMoto) from motoNaGaragem;
+select count(fkMoto) from motoNaGaragem where motoComprada=1;
+
+select sum(m.preco) from motoNaGaragem as mg
+	join moto as m
+		on fkMoto = idMoto;
+    
+select sum(m.preco) from motoNaGaragem as mg
+	join moto as m
+		on fkMoto = idMoto
+	where mg.motoComprada=1;

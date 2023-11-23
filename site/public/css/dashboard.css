@@ -1,0 +1,176 @@
+:root {
+	--cor-primaria: hsl(0, 0%, 12%);
+	--cor-primaria-opaca: hsla(0, 0%, 12%, 0.8);
+	--cor-secundaria: hsl(0, 0%, 88%);
+	--cor-secundaria-opaca: hsl(0, 0%, 88%, 0.55);
+	--cor-terciaria-1: hsl(0, 0%, 22%);
+	--cor-terciaria-1-opaca: hsla(0, 0%, 22%, 0.8);
+	--cor-terciaria-2: hsl(0, 0%, 30%);
+	--cor-terciaria-2-opaca: hsla(0, 0%, 30%, 0.8);
+	--cor-terciaria-3: hsl(0, 0%, 78%);
+	--cor-terciaria-3-opaca: hsla(0, 0%, 78%, 0.8);
+	--cor-hover: red;
+	--opacidade-padrao: rgba(0, 0, 0, 0.6);
+	--fonte-principal: "Inter", sans-serif;
+	--tamanho-fonte: 16px;
+	--cor-fonte-primaria: hsl(0, 0%, 0%);
+	--cor-fonte-secundaria: hsl(0, 0%, 100%);
+	--espacamento-letra: 1px;
+	--altura-linha: 30px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: var(--fonte-principal);
+}
+
+body {
+	width: 100%;
+	height: 100vh;
+	background-color: var(--cor-primaria);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow-y: hidden;
+}
+.perfil {
+	height: 96%;
+	width: 22%;
+	margin: 1% 1.5% 1% 1%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: var(--cor-secundaria);
+	border-radius: 10px;
+}
+.perfil button {
+	width: 38%;
+	height: 5%;
+	left: 0;
+	border-radius: 8px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin: 3% 59% 1% 3%;
+	border: outset 3px var(--cor-terciaria-3);
+	background-color: var(--cor-primaria);
+	color: var(--cor-fonte-secundaria);
+}
+.perfil button:hover {
+	cursor: pointer;
+}
+.perfil button:active {
+	border: inset 3px var(--cor-terciaria-3);
+}
+.perfil button img {
+	height: 20px;
+	filter: invert(100%);
+}
+.perfil .usuario {
+	height: 45%;
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	border-bottom: 2px solid var(--cor-primaria);
+}
+.perfil .usuario img {
+	width: 150px;
+}
+.perfil .garagem {
+	height: 55%;
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	text-align: center;
+}
+.perfil .garagem p {
+	font-size: 15px;
+}
+.perfil .garagem .tag {
+	font-weight: bold;
+}
+
+.estatisticas {
+	height: 96%;
+	width: 74%;
+	margin: 1% 1.5% 1% 0%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.estatisticas .garagem {
+	width: 100%;
+	height: 34%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: var(--cor-secundaria);
+	border-radius: 10px;
+	margin-bottom: 1%;
+}
+.estatisticas .garagem h3 {
+	text-align: center;
+	width: 40%;
+	padding-bottom: 1%;
+	border-bottom: 2px solid var(--cor-primaria);
+}
+.estatisticas .garagem .dadosLinha {
+	height: 30%;
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.estatisticas .garagem .dadosLinha .dados {
+	text-align: center;
+}
+.estatisticas .garagem .dadosLinha .dados .tag {
+	font-weight: bold;
+}
+
+.estatisticas .geral {
+	width: 100%;
+	height: 65%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: var(--cor-secundaria);
+	border-radius: 10px;
+}
+
+.estatisticas .geral h3 {
+	text-align: center;
+	width: 40%;
+	padding-bottom: 1%;
+	border-bottom: 2px solid var(--cor-primaria);
+}
+
+.estatisticas .geral .graficosLinha {
+	height: 38%;
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.estatisticas .geral .graficosLinha .grafico {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+	width: 45%;
+	text-align: center;
+	/* border: 1px solid black; */
+}
+.estatisticas .geral .graficosLinha .grafico .tag {
+	font-weight: bold;
+}

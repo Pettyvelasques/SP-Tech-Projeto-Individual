@@ -14,7 +14,6 @@ function marcarMoto() {
 	// var indexAtual = 0;
 	// var motosNaGaragem = [];
 	var modelo = motosNaGaragem[indexAtual];
-	console.log(modelo);
 	var temMotoVar;
 	var fkMotoVar;
 
@@ -40,7 +39,6 @@ function marcarMoto() {
 		console.log(`erro ao resgatar nome da moto.. valor da variavel:${modelo}`);
 		return false;
 	}
-	console.log(fkMotoVar);
 
 	if (possuiMoto[indexAtual] == 1) {
 		botaoVenda.style = "display: none;";
@@ -61,7 +59,6 @@ function marcarMoto() {
 			`erro ao (des)marcar moto.. valor da variavel:${possuiMoto[indexAtual]}`
 		);
 	}
-	console.log(temMotoVar);
 	fetch("/garagens/possuiMoto", {
 		method: "POST",
 		headers: {
@@ -143,9 +140,6 @@ function motoNaGaragem() {
 		console.log(`erro ao resgatar nome da moto.. valor da variavel:${modelo}`);
 		return false;
 	}
-
-	console.log(motoComprada);
-	console.log(indiceModelo);
 
 	if (motoComprada == 1) {
 		console.log(
@@ -261,7 +255,10 @@ function trocarTela(tela) {
 	var garagem = document.getElementById("telaGaragem");
 	var modalDetalhes = document.getElementById("modalDetalhesMoto");
 	var userSession =
-		sessionStorage.NOME_USUARIO + sessionStorage.SOBRENOME_USUARIO[0] + `.`;
+		sessionStorage.NOME_USUARIO +
+		` ` +
+		sessionStorage.SOBRENOME_USUARIO[0] +
+		`.`;
 	var cidadeSession = sessionStorage.CIDADE_USUARIO;
 
 	entrada.style = "display: none;";
@@ -342,21 +339,21 @@ function anteriorMoto(locate) {
 		}
 		indiceAtual -= 1;
 	}
+	imagemMotoAtual.classList = `motoLeftOut`;
+
 	imagemMotoOut.src = `./assets/motos/${arrayMotos[indiceAtual]}.png`;
 	imagemMotoOut.style = `margin-right: 1500px; margin-left: 0; display: block`;
 	imagemMotoOut.classList = `motoLeftIn`;
 
-	imagemMotoAtual.classList = `motoLeftOut`;
-
 	mudarValoresModal(locate, arrayMotos[indiceAtual]);
 
 	setTimeout(() => {
-		imagemMotoOut.classList = ``;
-		imagemMotoOut.style = `display: none`;
-
 		imagemMotoAtual.src = `./assets/motos/${arrayMotos[indiceAtual]}.png`;
 		imagemMotoAtual.setAttribute("class", arrayMotos[indiceAtual]);
 		imagemMotoAtual.style = `display: block`;
+
+		imagemMotoOut.classList = ``;
+		imagemMotoOut.style = `display: none`;
 
 		executandoAnimacao = 0;
 
@@ -413,22 +410,21 @@ function proximaMoto(locate) {
 		}
 		indiceAtual += 1;
 	}
+	imagemMotoAtual.classList = `motoRightOut`;
 
 	imagemMotoOut.src = `./assets/motos/${arrayMotos[indiceAtual]}.png`;
 	imagemMotoOut.style = `margin-right: 0; margin-left:1500px; display: block`;
 	imagemMotoOut.classList = `motoRightIn`;
 
-	imagemMotoAtual.classList = `motoRightOut`;
-
 	mudarValoresModal(locate, arrayMotos[indiceAtual]);
 
 	setTimeout(() => {
-		imagemMotoOut.classList = ``;
-		imagemMotoOut.style = `display: none`;
-
 		imagemMotoAtual.src = `./assets/motos/${arrayMotos[indiceAtual]}.png`;
 		imagemMotoAtual.setAttribute("class", arrayMotos[indiceAtual]);
 		imagemMotoAtual.style = `display: block`;
+
+		imagemMotoOut.classList = ``;
+		imagemMotoOut.style = `display: none`;
 
 		executandoAnimacao = 0;
 
@@ -468,10 +464,9 @@ function atualizarMotosGaragem(data) {
 			possuiMoto.push(indexMoto.motoComprada);
 		}
 	}
-
-	console.log(motos);
 	console.log(`motos na garagem ${motosNaGaragem}`);
 }
+
 function atualizarMotosLoja(data) {
 	var motos = JSON.parse(data);
 
@@ -481,34 +476,26 @@ function atualizarMotosLoja(data) {
 		if (indexMoto.modelo == "Shadow 750") {
 			motosNaLoja.push(`shadow-750`);
 			shadow750 = motos[contador];
-			console.log(shadow750);
 		} else if (indexMoto.modelo == "Shadow 600") {
 			motosNaLoja.push(`shadow-600`);
 			shadow600 = motos[contador];
-			console.log(shadow600);
 		} else if (indexMoto.modelo == "Boulevard 800") {
 			motosNaLoja.push(`boulevard-800`);
 			boulevard800 = motos[contador];
-			console.log(boulevard800);
 		} else if (indexMoto.modelo == "Virago 535") {
 			motosNaLoja.push(`virago-535`);
 			virago535 = motos[contador];
-			console.log(virago535);
 		} else if (indexMoto.modelo == "Dragstar 650") {
 			motosNaLoja.push(`dragstar-650`);
 			dragstar650 = motos[contador];
-			console.log(dragstar650);
 		} else if (indexMoto.modelo == "Midnight 950") {
 			motosNaLoja.push(`midnight-950`);
 			midnight950 = motos[contador];
-			console.log(midnight950);
 		} else if (indexMoto.modelo == "Vulcan 900") {
 			motosNaLoja.push(`vulcan-900`);
 			vulcan900 = motos[contador];
-			console.log(vulcan900);
 		}
 	}
-
 	console.log(`motos na loja ${motosNaLoja}`);
 }
 

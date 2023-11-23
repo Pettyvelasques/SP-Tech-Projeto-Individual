@@ -11,7 +11,7 @@
 	--cor-terciaria-3-opaca: hsla(0, 0%, 78%, 0.8);
 	--cor-hover: red;
 	--opacidade-padrao: rgba(0, 0, 0, 0.6);
-	--fonte-principal: "arial";
+	--fonte-principal: "Inter", sans-serif;
 	--tamanho-fonte: 16px;
 	--cor-fonte-primaria: hsl(0, 0%, 0%);
 	--cor-fonte-secundaria: hsl(0, 0%, 100%);
@@ -22,6 +22,7 @@
 * {
 	padding: 0;
 	margin: 0;
+	font-family: var(--fonte-principal);
 }
 
 body {
@@ -89,7 +90,7 @@ header .navbar .navOpcoes {
 
 header .navbar .navOpcoes .navItem {
 	width: 100%;
-	font-size: 18px;
+	font-size: 16px;
 	text-align: center;
 }
 
@@ -154,7 +155,7 @@ header .navbar .menu #menuOpcoes {
 	width: auto;
 	height: 100px;
 	padding: 15px;
-	font-size: 15px;
+	font-size: 13px;
 	border-end-start-radius: 5px;
 	border-end-end-radius: 5px;
 	background-color: var(--cor-terciaria-1);
@@ -200,7 +201,7 @@ main {
 }
 .containerIntro .intro p {
 	width: 40%;
-	font-size: 30px;
+	font-size: 28px;
 }
 .containerIntro .intro .imagemMoto {
 	width: 40%;
@@ -278,7 +279,7 @@ main {
 }
 
 .containerSobre h3 {
-	font-size: 30px;
+	font-size: 28px;
 	margin-bottom: 8%;
 	background-color: var(--cor-secundaria-opaca);
 	color: var(--cor-primaria);
@@ -293,13 +294,15 @@ main {
 	align-items: center;
 	color: var(--cor-secundaria);
 	width: 95%;
-	font-size: 20px;
+	font-size: 18px;
 	padding: 3%;
 	border-radius: 10px;
 }
 .containerSobre .contexto p {
 	margin: 0 2%;
-	width: 34%;
+	padding: 1%;
+	width: 32%;
+	letter-spacing: 0.5px;
 	background-color: hsla(0, 0%, 12%, 0.1);
 	border-radius: 10px;
 }
@@ -359,12 +362,18 @@ main {
 	width: 80%;
 	height: 100vh;
 	margin: 5% 10%;
-}
-.containerGaragemDosSonhos h3 {
-	font-size: 30px;
-	margin-bottom: 3%;
 	color: white;
+}
+.containerGaragemDosSonhos h2 {
+	font-size: 27px;
+	margin-bottom: 3%;
 	z-index: 3;
+}
+.containerGaragemDosSonhos h4 {
+	font-size: 14px;
+	margin-bottom: 3%;
+	z-index: 3;
+	font-weight: normal;
 }
 .containerGaragemDosSonhos #telaLoginCadastro {
 	width: 100%;
@@ -383,7 +392,7 @@ main {
 	position: absolute;
 	width: 100%;
 	height: 90%;
-	top: 315%;
+	top: 330%;
 	left: 0;
 	background: linear-gradient(
 		to right,
@@ -430,7 +439,7 @@ main {
 
 .card_erro #mensagem_erro {
 	font-weight: 500;
-	font-size: 15px;
+	font-size: 13px;
 }
 
 .containerGaragemDosSonhos
@@ -454,8 +463,8 @@ main {
 	#logarSe {
 	position: absolute;
 	padding: 2px 10px;
-	top: 320%;
-	right: 44%;
+	top: 335%;
+	right: 43%;
 	font-size: 14px;
 	color: var(--cor-fonte-secundaria);
 	border-radius: 15px;
@@ -559,9 +568,9 @@ main {
 	.containerLogin
 	#cadastrarSe {
 	position: absolute;
-	padding: 2px 5px;
-	top: 320%;
-	left: 42%;
+	padding: 2px 6px;
+	top: 335%;
+	left: 40%;
 	font-size: 14px;
 	color: var(--cor-fonte-secundaria);
 	border-radius: 15px;

@@ -75,13 +75,34 @@ Consumo Médio(km/l) 18,2
 tanque 20L
 
 ==================
+total moto
+	select count(fkMoto) as totalMotos from motoNaGaragem;
 
-potencia por R$ // cc por R$
-potencia por cc ou por litro
+motos compradas
+	select count(fkMoto) as totalCompradas from motoNaGaragem where motoComprada=1;
+
+valor garagem
+	select sum(m.preco) as precoTotal from motoNaGaragem as mg join moto as m on fkMoto = idMoto where mg.fkGaragem=1;
+
+valor compradas
+	select sum(m.preco) as precoCompradas from motoNaGaragem as mg join moto as m on fkMoto = idMoto where mg.fkGaragem=1 and mg.motoComprada=1;
+
+
+
+
+funcoes abaixo
+	select * from moto
+R$ por potencia
+R$ por cc
+cc por torque
+cc por potencia
+
 mais economicas - consumo
-maior autonomia - tanque/consumo
+maior autonomia - tanque * consumo
+
 
 quant. usuarios
 quant. garagem vazia
 quant motos adicionadas
-quant motos compradas
+quant media motos/garagem
+quant motos marcadas como compradas

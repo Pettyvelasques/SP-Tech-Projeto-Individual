@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Reisen Garage</title>
+		<link rel="stylesheet" href="../css/dashboard.css" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<div class="perfil">
+         <button onclick="toGarage()"><img src="../assets/icones/left-arrow.png">
+            GARAGEM</button>
+			<div class="usuario">
+				<img src="../assets/icones/helmet-user-icon.png" alt="" />
+				<h3 id="nomeUsuario">GUEST</h2>
+			</div>
+			<div class="garagem">
+            <div class="motosGaragem">
+               <p class="tag">MOTOS NA GARAGEM</p>
+               <p id="totalMotos">
+               </p>
+            </div>
+            <div class="motosCompradas">
+               <p class="tag">MOTOS COMPRADAS</p>
+               <p id="totalCompradas"></p>
+            </div>
+            <div class="valorMotosGaragem">
+               <p class="tag">VALOR DA GARAGEM</p>
+               <p>R$ <span id="valorMotos"></span>,00</p>
+            </div>
+            <div class="valorMotosCompradas">
+               <p class="tag">TOTAL INVESTIDO</p>
+               <p>R$ <span id="valorInvestido"></span>,00</p>
+            </div>
+			</div>
+		</div>
+		<div class="estatisticas">
+         <div class="garagem">
+            <h3>SUA GARAGEM</h3>
+            <div class="dadosLinha">
+               <div class="dados maisCara">
+                  <p><span class="tag">MOTO MAIS CARA:</span> <span id="motoMaisCara"></span></p>
+                  <p><span class="tag">PREÇO:</span> R$<span id="precoMaisCara"></span>,00</p>
+               </div>
+               <div class="dados maiorMoto">
+                  <p><span class="tag">MAIOR MOTO:</span> <span id="motoMaiorCilindrada"></span></p>
+                  <p><span class="tag">CILINDRADAS:</span> <span id="ccMaiorMoto"></span> cc</p>
+               </div>
+               <div class="dados maisEconomica">
+                  <p><span class="tag">MAIS ECONOMICA:</span> <span id="motoMaisEconomica"></span></p>
+                  <p><span class="tag">CONSUMO:</span> <span id="consumoMaisEconomica"></span> km/L</p>
+               </div>
+            </div>
+            <div class="dadosLinha">
+               <div class="dados maisBarata">
+                  <p><span class="tag">MOTO MAIS BARATA:</span> <span id="motoMaisBarata"></span></p>
+                  <p><span class="tag">PREÇO:</span> R$<span id="precoMaisBarata"></span> ,00</p></div>
+               <div class="dados menorMoto">
+                  <p><span class="tag">MENOR MOTO:</span> <span id="motoMenorCilindrada"></span></p>
+                  <p><span class="tag">CILINDRADAS:</span> <span id="ccMenorMoto"></span> cc</p>
+               </div>
+               <div class="dados maiorAutonomia">
+                  <p><span class="tag">MAIOR AUTONOMIA:</span> <span id="motoMaiorAutonomia"></span></p>
+                  <p><span class="tag">CONSUMO:</span> <span id="autonomia"></span> Km</p>
+               </div>
+            </div>
+         </div>
+         <div class="geral">
+            <h3>ESTATÍSTICAS GERAIS</h3>
+            <div class="graficosLinha">
+               <div class="grafico ccPorPotencia">
+                  <p class="tag">CILINDRADA POR POTÊNCIA</p>
+                  <canvas id="graficoCcPorPotencia" width="300" height="100"></canvas>
+               </div>
+               <div class="grafico ccPorTorque">
+                  <p class="tag">CILINDRADA POR TORQUE</p>
+                  <canvas id="graficoCcPorTorque" width="300" height="100"></canvas>
+               </div>
+            </div>
+            <div class="graficosLinha">
+               <div class="grafico rsPorPotencia">
+                  <p class="tag">R$ POR POTÊNCIA</p>
+                  <canvas id="graficoRsPorPotencia" width="300" height="100"></canvas>
+               </div>
+
+               <div class="grafico rsPorTorque">
+                  <p class="tag">R$ POR TORQUE</p>
+                  <canvas id="graficoRsPorTorque" width="300" height="100"></canvas>
+               </div>
+            </div>
+         </div>
+      </div>
+
+		<script src="../js/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
+const graficccPotencia = document.getElementById('graficoCcPorPotencia');
+const graficccTorque = document.getElementById('graficoCcPorTorque');
+const graficrsPotencia = document.getElementById('graficoRsPorPotencia');
+const graficrsTorque = document.getElementById('graficoRsPorTorque');
+
+var labelGraficos = []
+var dadosCcPotencia = [];
+var dadosCcTorque = [];
+var dadosRsPotencia = [];
+var dadosRsTorque = [];
+      </script>
+	</body>
+</html>

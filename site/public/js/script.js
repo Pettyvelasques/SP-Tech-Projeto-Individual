@@ -248,3 +248,29 @@ function loginCadastro(tela) {
 		);
 	}
 }
+
+var indexAtual = 0;
+var sentido = 1;
+var totalItems = document.querySelectorAll(".carrosselItem").length;
+var carrossel = document.getElementById("carrossel");
+
+function atualizarSlide() {
+	carrossel.style.transform = "translateX(" + -indexAtual * 100 + "%)";
+}
+
+function proximoSlide() {
+	if (indexAtual < totalItems && sentido == 1) {
+		indexAtual = (indexAtual + 1) % totalItems;
+	} else if (indexAtual > 0 && sentido == 0) {
+		indexAtual = (indexAtual - 1 + totalItems) % totalItems;
+	}
+
+	if (indexAtual == totalItems - 1) {
+		sentido = 0;
+	} else if (indexAtual == 0) {
+		sentido = 1;
+	}
+	atualizarSlide();
+}
+
+setInterval(proximoSlide, 3000);

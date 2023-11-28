@@ -249,6 +249,7 @@ function loginCadastro(tela) {
 	}
 }
 
+// SEÇÃO CARROSSEL PAISAGENS
 var indexAtual = 0;
 var sentido = 1;
 var totalItems = document.querySelectorAll(".carrosselItem").length;
@@ -272,5 +273,30 @@ function proximoSlide() {
 	}
 	atualizarSlide();
 }
-
 setInterval(proximoSlide, 3000);
+
+// SEÇÃO CARROSSEL MINHAS VIAGENS MOTO
+var indexAtual2 = 0;
+var sentido2 = 1;
+var totalItems2 = document.querySelectorAll(".carrosselItem2").length;
+var carrosselAutor = document.getElementById("carrosselAutor");
+
+function atualizarSlide2() {
+	carrosselAutor.style.transform = "translateX(" + -indexAtual * 100 + "%)";
+}
+
+function proximoSlide2() {
+	if (indexAtual2 < totalItems2 && sentido2 == 1) {
+		indexAtual2 = (indexAtual2 + 1) % totalItems2;
+	} else if (indexAtual2 > 0 && sentido2 == 0) {
+		indexAtual2 = (indexAtual2 - 1 + totalItems2) % totalItems2;
+	}
+
+	if (indexAtual2 == totalItems2 - 1) {
+		sentido2 = 0;
+	} else if (indexAtual2 == 0) {
+		sentido2 = 1;
+	}
+	atualizarSlide2();
+}
+setInterval(proximoSlide2, 3000);

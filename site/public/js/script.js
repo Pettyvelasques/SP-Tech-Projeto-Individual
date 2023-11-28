@@ -30,6 +30,8 @@ function menu() {
 // FUNÇÕES DA SEÇÃO LOGIN/CADASTRO
 
 function cadastrar() {
+	aguardar(`cadastro`);
+
 	//Recupere o valor da nova input pelo nome do id
 	// Agora vá para o método fetch logo abaixo
 	var usuarioVar = usuarioCadastro.value;
@@ -44,36 +46,48 @@ function cadastrar() {
 		mensagem_erro.innerHTML =
 			"Nome do usuário inválido<br><br>O campo usuário deve conter mais de 01 caractere";
 
+		finalizarAguardar();
+		setInterval(sumirMensagem, 4000);
 		return false;
 	} else if (nomeVar.length <= 1) {
 		alertaErro.style.display = "flex";
 		mensagem_erro.innerHTML =
 			"Nome inválido<br><br>O campo nome deve conter mais de 01 caractere";
 
+		finalizarAguardar();
+		setInterval(sumirMensagem, 4000);
 		return false;
 	} else if (sobrenomeVar.length <= 1) {
 		alertaErro.style.display = "flex";
 		mensagem_erro.innerHTML =
 			"Sobrenome inválido<br><br>O campo sobrenome deve conter mais de 01 caractere";
 
+		finalizarAguardar();
+		setInterval(sumirMensagem, 4000);
 		return false;
 	} else if (cidadeVar.length <= 1) {
 		alertaErro.style.display = "flex";
 		mensagem_erro.innerHTML =
 			"Cidade inválida<br><br>O campo cidade deve conter mais de 01 caractere";
 
+		finalizarAguardar();
+		setInterval(sumirMensagem, 4000);
 		return false;
 	} else if (emailVar.indexOf("@") < 0 || emailVar.indexOf(".") < 0) {
 		alertaErro.style.display = "flex";
 		mensagem_erro.innerHTML =
 			"Email inválido<br><br>O email deve conter os caracteres @ e .";
 
+		finalizarAguardar();
+		setInterval(sumirMensagem, 4000);
 		return false;
 	} else if (senhaVar.length <= 5) {
 		alertaErro.style.display = "flex";
 		mensagem_erro.innerHTML =
 			"senha inválido<br><br>A senha deve conter ao menos 06 caracteres";
 
+		finalizarAguardar();
+		setInterval(sumirMensagem, 4000);
 		return false;
 		lit;
 	} else if (confirmacaoSenhaVar != senhaVar) {
@@ -81,6 +95,8 @@ function cadastrar() {
 		mensagem_erro.innerHTML =
 			"Confirmação de senha inválida<br><br>Ambas as senhas devem ser iguais";
 
+		finalizarAguardar();
+		setInterval(sumirMensagem, 4000);
 		return false;
 	} else {
 		setInterval(sumirMensagem, 4000);
@@ -108,7 +124,6 @@ function cadastrar() {
 
 			if (resposta.ok) {
 				alertaErro.style.display = "flex";
-
 				mensagem_erro.innerHTML =
 					"Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
@@ -117,24 +132,31 @@ function cadastrar() {
 				}, "2000");
 
 				limparFormulario();
+				finalizarAguardar();
 			} else {
 				throw "Houve um erro ao tentar realizar o cadastro!";
 			}
 		})
 		.catch(function (resposta) {
 			console.log(`#ERRO: ${resposta}`);
+			finalizarAguardar();
 		});
 
 	return false;
 }
 
 function entrar() {
+	aguardar(`login`);
+
 	var usernameVar = inputUsernameLogin.value;
 	var senhaVar = inputSenhaLogin.value;
 
 	if (usernameVar == "" || senhaVar == "") {
 		cardErro.style.display = "block";
 		mensagem_erro.innerHTML = "usuário e/ou senha inválidos!";
+
+		finalizarAguardar();
+		setInterval(sumirMensagem, 5000);
 		return false;
 	} else {
 		setInterval(sumirMensagem, 5000);
@@ -178,6 +200,7 @@ function entrar() {
 
 				resposta.text().then((texto) => {
 					console.error(texto);
+					finalizarAguardar(texto, `login`);
 				});
 			}
 		})
@@ -190,6 +213,39 @@ function entrar() {
 
 function sumirMensagem() {
 	alertaErro.style.display = "none";
+}
+
+function aguardar(locate) {
+	if (locate == `cadastro`) {
+		var aguardar = document.getElementById("loadingCadastro");
+		aguardar.style.display = "flex";
+	} else if (locate == `login`) {
+		var aguardar = document.getElementById("loadingLogin");
+		aguardar.style.display = "flex";
+	} else {
+		console.log(`não foi possível resgatar o local... var ${locate}`);
+	}
+}
+
+function finalizarAguardar(texto, locate) {
+	var aguardarCadastro = document.getElementById("loadingCadastro");
+	var aguardarLogin = document.getElementById("loadingLogin");
+	aguardarCadastro.style.display = "none";
+	aguardarLogin.style.display = "none";
+
+	if (texto) {
+		if (locate == `cadastro`) {
+			var errosLogin = document.getElementById("errosCadastro");
+			errosLogin.style.display = "flex";
+			errosLogin.innerHTML = texto;
+		} else if (locate == `login`) {
+			var errosLogin = document.getElementById("errosLogin");
+			errosLogin.style.display = "flex";
+			errosLogin.innerHTML = texto;
+		} else {
+			console.log(`não foi possível resgatar o local... var ${locate}`);
+		}
+	}
 }
 
 // ANTIGA FUNÇÃO DE LOGIN, ANTES DE CONECTAR O BANCO DE DADOS

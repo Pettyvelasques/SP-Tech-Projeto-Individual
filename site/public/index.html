@@ -108,10 +108,7 @@
 					<div class="containerLoginCadastro">
 						<div class="alerta_erro" id="alertaErro">
 							<div class="card_erro" id="cardErro">
-								<span id="mensagem_erro"
-									>Nome do usuário inválido<br /><br />O campo nome deve conter
-									mais de 01 caractere</span
-								>
+								<span id="mensagem_erro"></span>
 							</div>
 						</div>
 						<div class="containerCadastro" id="containerCadastro">
@@ -136,6 +133,11 @@
 								id="confimarSenha"
 								placeholder="Confirmar senha" />
 							<button onclick="cadastrar()">Cadastrar-se</button>
+							<img
+								src="./assets/icones/loading-icon.png"
+								class="loading"
+								id="loadingCadastro" />
+							<div id="errosCadastro" class="erros">ERRO</div>
 						</div>
 						<div class="containerLogin" id="containerLogin">
 							<span id="cadastrarSe" onclick="loginCadastro(`cadastro`)"
@@ -171,7 +173,11 @@
 							</div>
 							<div class="esqueciSenha">ESQUECEU A SENHA?</div>
 							<button onclick="entrar()">Login</button>
-							<img src="./assets/teste-icons/roda-icon-4.png" id="loading" />
+							<img
+								src="./assets/icones/loading-icon.png"
+								class="loading"
+								id="loadingLogin" />
+							<div id="errosLogin" class="erros">ERRO</div>
 						</div>
 					</div>
 				</div>

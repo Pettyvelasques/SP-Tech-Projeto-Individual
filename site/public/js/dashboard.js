@@ -258,5 +258,8 @@ function atualizaDashGaragem(cara, maior, economica, barata, menor, autonoma) {
 	nomeMaiorAutonomia.innerHTML = autonoma[0];
 	valorMaiorAutonomia.innerHTML = autonoma[1];
 }
+function toGarage() {
+	window.location.href = "../garagem.html";
+}
 
 window.onload = obterDadosDash();

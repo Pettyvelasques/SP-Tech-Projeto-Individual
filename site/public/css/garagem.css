@@ -42,6 +42,32 @@ body {
 	width: 100%;
 	height: 100vh;
 }
+.alerta_erro {
+	display: none;
+	justify-content: flex-end;
+	position: absolute;
+	top: 5%;
+	height: auto;
+	width: 20%;
+	margin: 0 40%;
+}
+
+.card_erro {
+	display: flex;
+	background-color: var(--cor-terciaria-3-opaca);
+	color: var(--cor-primaria);
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	border: var(--cor-secundaria-opaca) 3px solid;
+	padding: 10px 20px;
+}
+
+.card_erro #mensagem_erro {
+	font-weight: 500;
+	font-size: 13px;
+	font-weight: bold;
+}
 .containerGaragemDosSonhos #telaEntrada {
 	width: 100%;
 	height: 100%;
@@ -377,6 +403,302 @@ body {
 	justify-content: space-between;
 	align-items: center;
 }
+.containerGaragemDosSonhos .backgroundGaragem .mainGaragem .containerSimulador {
+	position: absolute;
+	width: 80%;
+	height: 88%;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	margin: 0 10%;
+}
+
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto {
+	background-color: var(--cor-terciaria-3-opaca);
+	color: var(--cor-primaria);
+	width: 70%;
+	height: 62%;
+	border-radius: 10px;
+	z-index: 2;
+	padding: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	#fecharSimulador {
+	position: absolute;
+	top: 20%;
+	left: 15%;
+	width: 25px;
+	height: 25px;
+	border: outset 2px var(--cor-primaria-opaca);
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	#fecharSimulador:hover {
+	cursor: pointer;
+}
+
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	#fecharSimulador:active {
+	border: inset 2px var(--cor-primaria-opaca);
+}
+
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.imagem {
+	width: 50%;
+}
+
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.imagem
+	#simuladorImagem {
+	width: 100%;
+	height: auto;
+}
+
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.especificacoes {
+	width: 50%;
+	min-height: 94%;
+	border: 2px solid var(--cor-primaria);
+	border-radius: 5px;
+	padding: 10px;
+}
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.especificacoes
+	p {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	width: 100%;
+}
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.especificacoes
+	span {
+	font-weight: normal;
+	margin-left: 5px;
+}
+
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.especificacoes
+	.modeloPreco {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid brown;
+	width: 100%;
+}
+
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.especificacoes
+	.modeloPreco
+	p {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	width: 100%;
+}
+
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.especificacoes
+	.modeloPreco
+	#simuladorModelo {
+	font-size: 24px;
+	font-weight: bold;
+}
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.especificacoes
+	.modeloPreco
+	#simuladorPreco {
+	color: brown;
+	font-size: 22px;
+	display: flex;
+	justify-content: end;
+	align-items: end;
+}
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.especificacoes
+	.dadosSimulacao {
+	width: 100%;
+	height: auto;
+	text-align: center;
+	margin-top: 20px;
+}
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.especificacoes
+	.dadosSimulacao
+	p,
+input {
+	margin: 2% 0;
+}
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.especificacoes
+	.dadosSimulacao
+	.prestacoes {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 90%;
+	margin: 2% 5%;
+}
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.especificacoes
+	.dadosSimulacao
+	.prestacoes
+	#prestacaoSimulador {
+	width: 40%;
+	height: 20px;
+	border: solid 2px var(--cor-primaria-opaca);
+	border-radius: 10px;
+	text-align: center;
+}
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.especificacoes
+	.dadosSimulacao
+	#resultadoSimulacao {
+	display: none;
+	border: solid 2px var(--cor-primaria);
+	background-color: var(--cor-terciaria-3);
+	width: 90%;
+	margin: 0 5%;
+	line-height: 25px;
+	font-weight: bold;
+	color: brown;
+}
+
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.especificacoes
+	.dadosSimulacao
+	.prestacoes
+	button {
+	width: 30%;
+	height: 20px;
+	border-radius: 25px;
+	font-size: 14px;
+	border: outset 2px var(--cor-primaria-opaca);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	/* margin: 0 35%; */
+}
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.especificacoes
+	.dadosSimulacao
+	button:hover {
+	cursor: pointer;
+}
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.especificacoes
+	.dadosSimulacao
+	button:active {
+	border: inset 2px var(--cor-primaria-opaca);
+}
+.containerGaragemDosSonhos
+	.backgroundGaragem
+	.mainGaragem
+	.containerSimulador
+	.detalhesMoto
+	.especificacoes
+	.dadosSimulacao
+	button:active {
+	border: inset 2px var(--cor-primaria-opaca);
+}
+
 .containerGaragemDosSonhos
 	.backgroundGaragem
 	.mainGaragem
@@ -764,7 +1086,7 @@ body {
 #motocicletaGetIn {
 	display: none;
 	position: absolute;
-	margin-right: 1500px;
+	margin-right: 1850px;
 }
 
 .containerGaragemDosSonhos .backgroundGaragem .mainGaragem .proximaMoto {
@@ -936,7 +1258,7 @@ body {
 	right: 9%;
 	font-size: 11px;
 	background-color: black;
-	height: 40px;
+	height: 50px;
 	width: 12%;
 	padding: 3px;
 	border-radius: 5px;
@@ -1270,7 +1592,7 @@ body {
 	display: none;
 	position: absolute;
 	z-index: 1;
-	margin-right: 1500px;
+	margin-right: 1850px;
 }
 
 .containerGaragemDosSonhos .backgroundLoja .mainLoja .proximaMoto {
@@ -1306,7 +1628,7 @@ body {
 /* KEYFRAMES DE ANIMAÇÃO DOS SLIDERS */
 @keyframes motoLeftIn {
 	0% {
-		margin-right: 1500px;
+		margin-right: 1850px;
 	}
 
 	100% {
@@ -1319,12 +1641,12 @@ body {
 	}
 
 	100% {
-		margin-left: 1500px;
+		margin-left: 1850px;
 	}
 }
 @keyframes motoRightIn {
 	0% {
-		margin-left: 1500px;
+		margin-left: 1850px;
 	}
 
 	100% {
@@ -1337,6 +1659,6 @@ body {
 	}
 
 	100% {
-		margin-right: 1500px;
+		margin-right: 1850px;
 	}
 }

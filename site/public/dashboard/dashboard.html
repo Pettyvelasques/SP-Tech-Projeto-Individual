@@ -57,7 +57,7 @@
             <div class="dadosLinha">
                <div class="dados maisBarata">
                   <p><span class="tag">MOTO MAIS BARATA:</span> <span id="motoMaisBarata"></span></p>
-                  <p><span class="tag">PREÇO:</span> R$<span id="precoMaisBarata"></span> ,00</p></div>
+                  <p><span class="tag">PREÇO:</span> R$<span id="precoMaisBarata"></span>,00</p></div>
                <div class="dados menorMoto">
                   <p><span class="tag">MENOR MOTO:</span> <span id="motoMenorCilindrada"></span></p>
                   <p><span class="tag">CILINDRADAS:</span> <span id="ccMenorMoto"></span> cc</p>
@@ -72,31 +72,31 @@
             <h3>ESTATÍSTICAS GERAIS</h3>
             <div class="graficosLinha">
                <div class="grafico ccPorPotencia">
-                  <p class="tag">CILINDRADA POR POTÊNCIA</p>
+                  <p class="tag">CILINDRADA POR POTÊNCIA (cv)</p>
                   <canvas id="graficoCcPorPotencia" width="300" height="100"></canvas>
                </div>
                <div class="grafico ccPorTorque">
-                  <p class="tag">CILINDRADA POR TORQUE</p>
+                  <p class="tag">CILINDRADA POR TORQUE (kgf.m)</p>
                   <canvas id="graficoCcPorTorque" width="300" height="100"></canvas>
                </div>
             </div>
             <div class="graficosLinha">
                <div class="grafico rsPorPotencia">
-                  <p class="tag">R$ POR POTÊNCIA</p>
+                  <p class="tag">R$ POR POTÊNCIA (cv)</p>
                   <canvas id="graficoRsPorPotencia" width="300" height="100"></canvas>
                </div>
 
                <div class="grafico rsPorTorque">
-                  <p class="tag">R$ POR TORQUE</p>
+                  <p class="tag">R$ POR TORQUE (kgf.m)</p>
                   <canvas id="graficoRsPorTorque" width="300" height="100"></canvas>
                </div>
             </div>
          </div>
       </div>
 
-		<script src="../js/dashboard.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      <script>
+   <script src="../js/dashboard.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <script>
 const graficccPotencia = document.getElementById('graficoCcPorPotencia');
 const graficccTorque = document.getElementById('graficoCcPorTorque');
 const graficrsPotencia = document.getElementById('graficoRsPorPotencia');

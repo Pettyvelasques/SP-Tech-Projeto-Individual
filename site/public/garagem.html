@@ -11,6 +11,11 @@
 	</head>
 	<body>
 		<div class="containerGaragemDosSonhos" id="containerGaragem">
+			<div class="alerta_erro" id="alertaErro">
+				<div class="card_erro" id="cardErro">
+					<span id="mensagem_erro"></span>
+				</div>
+			</div>
 			<div class="backgroundEntrada" id="telaEntrada">
 				<button id="logout" onclick="deslogar()">
 					<img src="./assets/icones/left-arrow.png" />SAIR
@@ -78,6 +83,40 @@
 					</div>
 				</div>
 				<div class="mainGaragem">
+					<div class="containerSimulador" id="modalSimulador">
+						<div class="detalhesMoto">
+							<button id="fecharSimulador" onclick="fecharModais()">X</button>
+							<div class="imagem">
+								<img src="" id="simuladorImagem" />
+							</div>
+							<div class="especificacoes">
+								<div class="modeloPreco">
+									<p>
+										<span id="simuladorModelo">
+									</p>
+									<p id="simuladorPreco"></p>
+								</div>
+
+								<div class="dadosSimulacao">
+									<p>Deseja simular por mês ou prestação</p>
+									<input type="radio" name="radioSimulador" id="radioMes" value="radioMes">
+									<label for="radioMes">Por Mês</label>
+									<input type="radio" name="radioSimulador" id="radioValor" value="radioValor">
+									<label for="radioMes">Por Prestação</label>
+									<br>
+									<p>Insira o valor ou a quantidade de prestações</p>
+									<div class="prestacoes">
+										<input type="number" id="prestacaoSimulador">
+										<button onclick="simular()">Simular</button>
+									</div>
+									<div id="resultadoSimulacao">
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
 					<div class="containerModalDetalhes" id="modalDetalhesMoto">
 						<div class="detalhesMoto">
 							<button id="fecharDetalhes" onclick="fecharModais()">X</button>
@@ -110,7 +149,9 @@
 									</div>
 								</div>
 								<div class="botoes">
-									<button id="botaoSimular">SIMULAR</button>
+									<button id="botaoSimular" onclick="exibirSimulador()">
+										SIMULAR
+									</button>
 									<button id="botaoComprar" onclick="marcarMoto()">
 										<img src="./assets/icones/check-mark.png" />
 										COMPRAR

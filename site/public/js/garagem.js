@@ -4,8 +4,105 @@
 // EXIBIR MODAL COM DETALHES DA MOTO
 function exibirDetalhes() {
 	var modalDetalhes = document.getElementById("modalDetalhesMoto");
-
 	modalDetalhes.style = "display: flex;";
+}
+
+function exibirSimulador() {
+	var modalDetalhes = document.getElementById("modalDetalhesMoto");
+	var modalSimulador = document.getElementById("modalSimulador");
+	modalDetalhes.style = "display: none;";
+	modalSimulador.style = "display: flex;";
+
+	resultadoSimulacao.innerHTML = ``;
+}
+function simular() {
+	var porMes = document.getElementById("radioMes");
+	var porValor = document.getElementById("radioValor");
+	var prestacao = Number(prestacaoSimulador.value);
+	var valorMoto = 0;
+	var valorSimulador = document.getElementById("simuladorPreco");
+	var modeloSimulador = document.getElementById("simuladorModelo");
+	var motoIndex = motosNaGaragem[indexAtual];
+	var resultados = document.getElementById("resultadoSimulacao");
+
+	resultadoSimulacao.innerHTML = ``;
+
+	if (motoIndex == "shadow-750") {
+		valorMoto += Number(shadow750.preco);
+	} else if (motoIndex == "shadow-600") {
+		valorMoto += Number(shadow600.preco);
+	} else if (motoIndex == "boulevard-800") {
+		valorMoto += Number(boulevard800.preco);
+	} else if (motoIndex == "virago-535") {
+		valorMoto += Number(virago535.preco);
+	} else if (motoIndex == "dragstar-650") {
+		valorMoto += Number(dragstar650.preco);
+	} else if (motoIndex == "midnight-950") {
+		valorMoto += Number(midnight950.preco);
+	} else if (motoIndex == "vulcan-900") {
+		valorMoto += Number(vulcan900.preco);
+	} else {
+		console.log(`Erro ao resgatar o valor da moto... variavel ${motoIndex}`);
+	}
+	var total = valorMoto / prestacao;
+
+	resultados.style = "display: flex";
+	resultadoSimulacao.innerHTML += `Simulando o valor de ${valorSimulador.innerText} referente a moto ${modeloSimulador.innerText}.<br>`;
+
+	if (porMes.checked) {
+		resultadoSimulacao.innerHTML += `Você terá de guardar R$${total.toFixed(
+			2
+		)} por aproximadamente ${prestacao} meses`;
+	} else if (porValor.checked) {
+		resultadoSimulacao.innerHTML += `Você terá de guardar R$${prestacao}.00 por aproximadamente ${total.toFixed(
+			0
+		)} mes(es)`;
+	}
+}
+
+function mudarValoresSimulador(locate, value) {
+	var motoAtual = "";
+
+	if (value == "shadow-750") {
+		motoAtual = shadow750;
+	} else if (value == "shadow-600") {
+		motoAtual = shadow600;
+	} else if (value == "boulevard-800") {
+		motoAtual = boulevard800;
+	} else if (value == "virago-535") {
+		motoAtual = virago535;
+	} else if (value == "dragstar-650") {
+		motoAtual = dragstar650;
+	} else if (value == "midnight-950") {
+		motoAtual = midnight950;
+	} else if (value == "vulcan-900") {
+		motoAtual = vulcan900;
+	} else {
+		console.log(`Erro ao resgatar nome da moto.. valor da variavel:${value}`);
+
+		alertaErro.style.display = "flex";
+		mensagem_erro.innerHTML = "Ocorreu um erro, tente novamente..";
+
+		setInterval(sumirMensagem, 4000);
+		return false;
+	}
+
+	if (locate == "loja") {
+		return false;
+	} else if (locate == "garagem") {
+		var imagem = document.getElementById("simuladorImagem");
+		var modelo = document.getElementById("simuladorModelo");
+		var preco = document.getElementById("simuladorPreco");
+		imagem.src = `./assets/motos/${value}.png`;
+	}
+
+	var motoAtualPreco = motoAtual.preco.toString();
+	var correcaoPreco = motoAtualPreco.replace(
+		motoAtualPreco[motoAtualPreco.length - 4],
+		motoAtualPreco[motoAtualPreco.length - 4] + "."
+	);
+	preco.innerHTML = "R$ " + correcaoPreco + ",00";
+	modelo.innerHTML = motoAtual.modelo;
 }
 
 // MARCAR MOTO COMO "JÁ POSSUI"
@@ -36,7 +133,7 @@ function marcarMoto() {
 	} else if (modelo == "vulcan-900") {
 		fkMotoVar = vulcan900.idMoto;
 	} else {
-		console.log(`erro ao resgatar nome da moto.. valor da variavel:${modelo}`);
+		console.log(`Erro ao resgatar nome da moto.. valor da variavel:${modelo}`);
 		return false;
 	}
 
@@ -47,6 +144,7 @@ function marcarMoto() {
 		checkMoto.style = "filter: opacity(30%);";
 		possuiMoto[indexAtual] = 0;
 		temMotoVar = 0;
+		mensagem_erro.innerHTML = "Moto vendida com sucesso!!";
 	} else if (possuiMoto[indexAtual] == 0) {
 		botaoVenda.style = "display: flex;";
 		botaoCompra.style = "display: none;";
@@ -54,10 +152,16 @@ function marcarMoto() {
 		checkMoto.style = "filter: brightness(90%);";
 		possuiMoto[indexAtual] = 1;
 		temMotoVar = 1;
+		mensagem_erro.innerHTML = `Moto comprada com sucesso!!`;
 	} else {
 		console.log(
-			`erro ao (des)marcar moto.. valor da variavel:${possuiMoto[indexAtual]}`
+			`Erro ao (des)marcar moto.. valor da variavel:${possuiMoto[indexAtual]}`
 		);
+		alertaErro.style.display = "flex";
+		mensagem_erro.innerHTML = "Ocorreu um erro, tente novamente..";
+
+		setInterval(sumirMensagem, 4000);
+		return false;
 	}
 	fetch("/garagens/possuiMoto", {
 		method: "POST",
@@ -77,15 +181,17 @@ function marcarMoto() {
 				// possuiMoto.push(0);
 				// atualizarValorGaragem();
 				// fecharModais();
-				// alertaErro.style.display = "flex";
 				// mensagem_erro.innerHTML = "Moto adicionada a sua garagem...";
+				alertaErro.style.display = "flex";
 			} else {
-				throw "Houve um erro ao marcar a moto como comprada!";
+				throw "Houve um erro ao (des)marcar a moto como comprada!";
 			}
 		})
 		.catch(function (resposta) {
 			console.log(`#ERRO: ${resposta}`);
 		});
+
+	setInterval(sumirMensagem, 4000);
 	return false;
 }
 
@@ -106,8 +212,13 @@ function modalModificarGaragem() {
 		modalAdd.style = "display: none";
 	} else {
 		console.log(
-			`erro ao exibir modal de adição de motos na garagem.. valor da variavel:${adicionadaGaragem}`
+			`Erro ao exibir modal de adição de motos na garagem.. valor da variavel:${adicionadaGaragem}`
 		);
+		alertaErro.style.display = "flex";
+		mensagem_erro.innerHTML = "Ocorreu um erro, tente novamente..";
+
+		setInterval(sumirMensagem, 4000);
+		return false;
 	}
 }
 
@@ -137,7 +248,7 @@ function motoNaGaragem() {
 	} else if (modelo == "vulcan-900") {
 		fkMotoVar = vulcan900.idMoto;
 	} else {
-		console.log(`erro ao resgatar nome da moto.. valor da variavel:${modelo}`);
+		console.log(`Erro ao resgatar nome da moto.. valor da variavel:${modelo}`);
 		return false;
 	}
 
@@ -145,7 +256,9 @@ function motoNaGaragem() {
 		console.log(
 			`Impossível remover da garagem uma moto que você ainda não vendeu!`
 		);
-		return false;
+		alertaErro.style.display = "flex";
+		mensagem_erro.innerHTML =
+			"Impossível remover da garagem uma moto marcada como comprada!";
 	} else if (indiceModelo == -1) {
 		fetch("/garagens/cadastrar", {
 			method: "POST",
@@ -169,9 +282,8 @@ function motoNaGaragem() {
 
 					atualizarValorGaragem();
 					fecharModais();
-					// alertaErro.style.display = "flex";
-
-					// mensagem_erro.innerHTML = "Moto adicionada a sua garagem...";
+					alertaErro.style.display = "flex";
+					mensagem_erro.innerHTML = "Moto adicionada a sua garagem...";
 				} else {
 					throw "Houve um erro ao adicionar a moto na garagem!";
 				}
@@ -179,7 +291,6 @@ function motoNaGaragem() {
 			.catch(function (resposta) {
 				console.log(`#ERRO: ${resposta}`);
 			});
-		return false;
 	} else if (indiceModelo != -1) {
 		fetch("/garagens/deletar", {
 			method: "POST",
@@ -203,9 +314,8 @@ function motoNaGaragem() {
 
 					atualizarValorGaragem();
 					fecharModais();
-					// alertaErro.style.display = "flex";
-
-					// mensagem_erro.innerHTML = "Moto removida da sua garagem...";
+					alertaErro.style.display = "flex";
+					mensagem_erro.innerHTML = "Moto removida da sua garagem...";
 				} else {
 					throw "Houve um erro ao remover a moto da garagem!";
 				}
@@ -213,8 +323,9 @@ function motoNaGaragem() {
 			.catch(function (resposta) {
 				console.log(`#ERRO: ${resposta}`);
 			});
-		return false;
 	}
+
+	setInterval(sumirMensagem, 4000);
 }
 
 //
@@ -243,6 +354,7 @@ function ocultaInfo() {
 function toDash() {
 	window.location.href = "./dashboard/dashboard.html";
 }
+
 function deslogar() {
 	sessionStorage.clear();
 	window.location.href = "./index.html";
@@ -288,6 +400,11 @@ function trocarTela(tela) {
 		garagem.style = "display: block;";
 	} else {
 		console.log(`Erro ao fazer seleção de tela... valor da variavel ${tela}`);
+		alertaErro.style.display = "flex";
+		mensagem_erro.innerHTML = "Ocorreu um erro, tente novamente..";
+
+		setInterval(sumirMensagem, 4000);
+		return false;
 	}
 	atualizarValorGaragem();
 }
@@ -318,7 +435,7 @@ function anteriorMoto(locate) {
 		indiceAtual = indexAtual;
 	} else {
 		console.log(
-			`erro ao recuperar localizacao do slider... valor da variavel ${locate}`
+			`Erro ao recuperar localizacao do slider... valor da variavel ${locate}`
 		);
 		executandoAnimacao = 0;
 		return false;
@@ -342,10 +459,11 @@ function anteriorMoto(locate) {
 	imagemMotoAtual.classList = `motoLeftOut`;
 
 	imagemMotoOut.src = `./assets/motos/${arrayMotos[indiceAtual]}.png`;
-	imagemMotoOut.style = `margin-right: 1500px; margin-left: 0; display: block`;
+	imagemMotoOut.style = `margin-right: 1850px; margin-left: 0; display: block`;
 	imagemMotoOut.classList = `motoLeftIn`;
 
 	mudarValoresModal(locate, arrayMotos[indiceAtual]);
+	mudarValoresSimulador(locate, arrayMotos[indiceAtual]);
 
 	setTimeout(() => {
 		imagemMotoAtual.src = `./assets/motos/${arrayMotos[indiceAtual]}.png`;
@@ -389,7 +507,7 @@ function proximaMoto(locate) {
 		indiceAtual = indexAtual;
 	} else {
 		console.log(
-			`erro ao recuperar localizacao do slider... valor da variavel ${locate}`
+			`Erro ao recuperar localizacao do slider... valor da variavel ${locate}`
 		);
 		executandoAnimacao = 0;
 		return false;
@@ -413,10 +531,11 @@ function proximaMoto(locate) {
 	imagemMotoAtual.classList = `motoRightOut`;
 
 	imagemMotoOut.src = `./assets/motos/${arrayMotos[indiceAtual]}.png`;
-	imagemMotoOut.style = `margin-right: 0; margin-left:1500px; display: block`;
+	imagemMotoOut.style = `margin-right: 0; margin-left:1850px; display: block`;
 	imagemMotoOut.classList = `motoRightIn`;
 
 	mudarValoresModal(locate, arrayMotos[indiceAtual]);
+	mudarValoresSimulador(locate, arrayMotos[indiceAtual]);
 
 	setTimeout(() => {
 		imagemMotoAtual.src = `./assets/motos/${arrayMotos[indiceAtual]}.png`;
@@ -542,11 +661,15 @@ function atualizarValorGaragem() {
 function fecharModais() {
 	var modalAdd = document.getElementById("modalAdicionar");
 	var modalRemove = document.getElementById("modalRemover");
+	var modalSimulador = document.getElementById("modalSimulador");
 	var modalDetalhes = document.getElementById("modalDetalhesMoto");
+	var resultadoSimulador = document.getElementById("resultadoSimulacao");
 
 	modalAdd.style = "display: none";
 	modalRemove.style = "display: none";
+	modalSimulador.style = "display: none;";
 	modalDetalhes.style = "display: none;";
+	resultadoSimulador.style = "display: none;";
 }
 
 // FUNÇÃO PARA MUDAR OS VALORES DAS MOTOS NOS MODAIS
@@ -568,7 +691,12 @@ function mudarValoresModal(locate, value) {
 	} else if (value == "vulcan-900") {
 		motoAtual = vulcan900;
 	} else {
-		console.log(`erro ao resgatar nome da moto.. valor da variavel:${value}`);
+		console.log(`Erro ao resgatar nome da moto.. valor da variavel:${value}`);
+
+		alertaErro.style.display = "flex";
+		mensagem_erro.innerHTML = "Ocorreu um erro, tente novamente..";
+
+		setInterval(sumirMensagem, 4000);
 		return false;
 	}
 
@@ -635,6 +763,10 @@ function mudarValoresModal(locate, value) {
 		checkMoto.src = "./assets/icones/buyed-check.png";
 		checkMoto.style = "filter: brightness(90%);";
 	}
+}
+
+function sumirMensagem() {
+	alertaErro.style.display = "none";
 }
 
 //

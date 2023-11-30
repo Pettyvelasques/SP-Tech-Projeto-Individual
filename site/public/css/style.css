@@ -345,7 +345,7 @@ main {
 	position: absolute;
 	width: 100%;
 	height: 300px;
-	top: 266%;
+	top: 267%;
 	background: linear-gradient(
 		to bottom,
 		rgba(0, 0, 0, 0) 0%,
@@ -364,6 +364,26 @@ main {
 	height: 100vh;
 	margin: 5% 10%;
 	color: white;
+}
+
+#capaceteGaragem {
+	/* filter: opacity(30%); */
+	width: 8%;
+	rotate: -20deg;
+	position: absolute;
+	top: 295%;
+	left: 15%;
+	z-index: -1;
+	filter: invert(25%);
+}
+#amortecedorGaragem {
+	filter: opacity(30%);
+	width: 5%;
+	rotate: 25deg;
+	position: absolute;
+	top: 350%;
+	right: 4%;
+	z-index: -1;
 }
 .containerGaragemDosSonhos h2 {
 	font-size: 27px;
@@ -393,7 +413,7 @@ main {
 	position: absolute;
 	width: 100%;
 	height: 91%;
-	top: 329%;
+	top: 330%;
 	left: 0;
 	background: linear-gradient(
 		to right,
@@ -843,6 +863,34 @@ main {
 	padding: 8% 0 2% 0;
 	text-align: center;
 }
+
+#velaCarrossel {
+	filter: opacity(30%);
+	width: 3%;
+	rotate: -40deg;
+	position: absolute;
+	top: 428%;
+	left: 10%;
+	z-index: -1;
+}
+#helmetCarrossel {
+	filter: opacity(30%);
+	width: 8%;
+	rotate: -20deg;
+	position: absolute;
+	top: 450%;
+	right: 4%;
+	z-index: -1;
+}
+#luvasCarrossel {
+	filter: opacity(40%);
+	width: 9%;
+	rotate: 190deg;
+	position: absolute;
+	top: 545%;
+	left: 25%;
+	z-index: -1;
+}
 .containerCarrossel h2 {
 	width: 100%;
 	font-size: 27px;
@@ -958,6 +1006,34 @@ main {
 	height: auto;
 	margin: 5% 10%;
 	color: white;
+}
+
+#marcaAutor {
+	filter: invert(30%);
+	width: 120%;
+	rotate: 4deg;
+	position: absolute;
+	top: 643%;
+	left: -3%;
+	z-index: -1;
+}
+#velocimetroAutor {
+	filter: opacity(25%);
+	width: 10%;
+	rotate: -10deg;
+	position: absolute;
+	top: 680%;
+	left: -3%;
+	z-index: -1;
+}
+#pistaoAutor {
+	filter: opacity(30%);
+	width: 3%;
+	rotate: -40deg;
+	position: absolute;
+	top: 728%;
+	right: 5%;
+	z-index: -1;
 }
 .containerAutor h2 {
 	font-size: 27px;

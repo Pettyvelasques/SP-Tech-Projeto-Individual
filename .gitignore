@@ -6,5 +6,6 @@ package-lock.json
 site/node_modules
 site/package-lock.json
 site/src/database/config.js
+documentos
 
 .github

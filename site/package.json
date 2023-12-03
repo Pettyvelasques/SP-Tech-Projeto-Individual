@@ -1,5 +1,5 @@
 {
-	"name": "web-data-viz",
+	"name": "reisen-garage-motorrad",
 	"version": "1.0.0",
 	"description": "",
 	"main": "app.js",
@@ -7,8 +7,8 @@
 		"start": "node app.js",
 		"dev": "nodemon --exec node app.js"
 	},
-	"author": "Feito pelos desenvolvedores @ São Paulo Tech School / Bandtec Digital School",
-	"license": "MIT",
+	"author": "Feito pelos desenvolvedores @ São Paulo Tech School / Bandtec Digital School, adaptado por Patrick Velasques Pessanha",
+	"license": "RGM",
 	"dependencies": {
 		"cors": "^2.8.5",
 		"express": "^4.17.1",

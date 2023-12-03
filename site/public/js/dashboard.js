@@ -89,7 +89,7 @@ function plotarGraficos(locate, dados) {
 				{
 					label: "",
 					data: dados,
-					backgroundColor: "#584634",
+					backgroundColor: "#1f1f1fcc",
 					borderWidth: 1,
 				},
 			],

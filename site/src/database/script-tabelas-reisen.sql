@@ -12,6 +12,9 @@ email varchar(45),
 senha varchar(20)
 );
 
+alter table usuario add unique(username);
+desc usuario;
+
 create table garagem(
 idGaragem int auto_increment,
 fkUsuario int,
@@ -40,7 +43,6 @@ insert into moto values
 (null, 'Vulcan 900', 'Kawasaki', 38125, 903, 50, 8, 18.2, 20),
 (null, 'Shadow 600', 'Honda', 26669, 583, 39, 5.1, 18, 11);
 
-
 create table motoNaGaragem(
 fkGaragem int,
 fkUsuario int,
@@ -51,6 +53,10 @@ foreign key (fkGaragem) references garagem(idGaragem),
 foreign key (fkUsuario) references usuario(idUsuario),
 foreign key (fkMoto) references moto(idMoto)
 );
+
+
+/*
+//COMANDOS UTILIZADOS PARA TESTES E POSTERIOR IMPLEMENTAÇÃO NA APLICAÇÃO WEB
 
 select * from usuario;
 select * from garagem;
@@ -72,7 +78,6 @@ update motoNaGaragem set motoComprada = 1 where fkMoto=1;
 
 delete from motoNaGaragem where fkGaragem=1 and fkUsuario=1 and fkMoto=2;
 
-    
 select count(fkMoto) from motoNaGaragem;
 select count(fkMoto) from motoNaGaragem where motoComprada=1;
 
@@ -84,3 +89,4 @@ select sum(m.preco) from motoNaGaragem as mg
 	join moto as m
 		on fkMoto = idMoto
 	where mg.motoComprada=1;
+*/

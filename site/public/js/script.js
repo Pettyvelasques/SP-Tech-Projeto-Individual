@@ -26,6 +26,15 @@ function menu() {
 	}
 }
 
+window.addEventListener("click", (e) => {
+	var menuHeader = document.getElementById("menuOpcoes");
+	console.log(e.target);
+	console.log(menuHeader.style);
+	if (menuHeader.style.display == "flex" && e.target != menuHeader) {
+		menu();
+	}
+});
+
 //
 // FUNÇÕES DA SEÇÃO LOGIN/CADASTRO
 
@@ -200,7 +209,7 @@ function entrar() {
 
 				resposta.text().then((texto) => {
 					console.error(texto);
-					finalizarAguardar(texto, `login`);
+					finalizarAguardar(texto);
 				});
 			}
 		})
@@ -227,24 +236,15 @@ function aguardar(locate) {
 	}
 }
 
-function finalizarAguardar(texto, locate) {
+function finalizarAguardar(texto) {
 	var aguardarCadastro = document.getElementById("loadingCadastro");
 	var aguardarLogin = document.getElementById("loadingLogin");
 	aguardarCadastro.style.display = "none";
 	aguardarLogin.style.display = "none";
 
 	if (texto) {
-		if (locate == `cadastro`) {
-			var errosLogin = document.getElementById("errosCadastro");
-			errosLogin.style.display = "flex";
-			errosLogin.innerHTML = texto;
-		} else if (locate == `login`) {
-			var errosLogin = document.getElementById("errosLogin");
-			errosLogin.style.display = "flex";
-			errosLogin.innerHTML = texto;
-		} else {
-			console.log(`não foi possível resgatar o local... var ${locate}`);
-		}
+		alertaErro.style.display = "flex";
+		mensagem_erro.innerHTML = texto;
 	}
 }
 
@@ -332,27 +332,27 @@ function proximoSlide() {
 setInterval(proximoSlide, 3000);
 
 // SEÇÃO CARROSSEL MINHAS VIAGENS MOTO
-var indexAtual2 = 0;
-var sentido2 = 1;
-var totalItems2 = document.querySelectorAll(".carrosselItem2").length;
-var carrosselAutor = document.getElementById("carrosselAutor");
+// var indexAtual2 = 0;
+// var sentido2 = 1;
+// var totalItems2 = document.querySelectorAll(".carrosselItem2").length;
+// var carrosselAutor = document.getElementById("carrosselAutor");
 
-function atualizarSlide2() {
-	carrosselAutor.style.transform = "translateX(" + -indexAtual * 100 + "%)";
-}
+// function atualizarSlide2() {
+// 	carrosselAutor.style.transform = "translateX(" + -indexAtual * 100 + "%)";
+// }
 
-function proximoSlide2() {
-	if (indexAtual2 < totalItems2 && sentido2 == 1) {
-		indexAtual2 = (indexAtual2 + 1) % totalItems2;
-	} else if (indexAtual2 > 0 && sentido2 == 0) {
-		indexAtual2 = (indexAtual2 - 1 + totalItems2) % totalItems2;
-	}
+// function proximoSlide2() {
+// 	if (indexAtual2 < totalItems2 && sentido2 == 1) {
+// 		indexAtual2 = (indexAtual2 + 1) % totalItems2;
+// 	} else if (indexAtual2 > 0 && sentido2 == 0) {
+// 		indexAtual2 = (indexAtual2 - 1 + totalItems2) % totalItems2;
+// 	}
 
-	if (indexAtual2 == totalItems2 - 1) {
-		sentido2 = 0;
-	} else if (indexAtual2 == 0) {
-		sentido2 = 1;
-	}
-	atualizarSlide2();
-}
-setInterval(proximoSlide2, 3000);
+// 	if (indexAtual2 == totalItems2 - 1) {
+// 		sentido2 = 0;
+// 	} else if (indexAtual2 == 0) {
+// 		sentido2 = 1;
+// 	}
+// 	atualizarSlide2();
+// }
+// setInterval(proximoSlide2, 3000);
